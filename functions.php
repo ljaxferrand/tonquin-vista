@@ -184,3 +184,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/** Requiring file that has custom post type functions */
+require get_template_directory() . '/inc/cpt-taxonomy.php';
