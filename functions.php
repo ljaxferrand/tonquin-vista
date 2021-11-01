@@ -145,6 +145,8 @@ function tonquin_vista_scripts() {
 
 	wp_enqueue_script( 'tonquin-vista-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+	wp_enqueue_script( 'tonquin-vista-activities-tab-control', get_template_directory_uri() . '/js/activities-tab-control.js', array(), _S_VERSION, true );
+
 	wp_enqueue_script( 'tonquin-vista-map', get_template_directory_uri() . '/js/map.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
