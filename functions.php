@@ -51,6 +51,7 @@ if ( ! function_exists( 'tonquin_vista_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'tonquin-vista' ),
+				'footer' => esc_html__( 'Footer Menu Location', 'tonquin-vista' ),
 			)
 		);
 

@@ -23,7 +23,7 @@ get_header();
 
 			get_template_part( 'template-parts/content', 'page' );
 
-			if( function_exists( 'get_field' )) :
+			if ( function_exists( 'get_field' )) :
 
 				$contact_img = get_field( 'contact_hero' );
 				if ( $contact_img ) :
