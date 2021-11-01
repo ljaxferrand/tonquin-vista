@@ -145,6 +145,8 @@ function tonquin_vista_scripts() {
 
 	wp_enqueue_script( 'tonquin-vista-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+	wp_enqueue_script( 'tonquin-vista-map', get_template_directory_uri() . '/js/map.js', array(), _S_VERSION, true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -187,3 +189,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 /** Requiring file that has custom post type functions */
 require get_template_directory() . '/inc/cpt-taxonomy.php';
+
+/** Requiring file that has custom ACF Google Map settings */
+require get_template_directory() . '/inc/map-settings.php';
