@@ -40,7 +40,7 @@ get_header();
             <div id="see-cabin-card">
                 <img id="see-cabins-img" src="<?php echo esc_url( $cabins_group['see_cabins_image']['url'] ); ?>" alt="<?php echo esc_attr( $cabins_group['see_cabins_image']['alt'] ); ?>" />
                 <p> <?php echo esc_html($cabins_group['see_cabins_text']) ?> </p>
-                <button><a href="<?php $cabins_group['see_cabins_btn'] ?>">See Cabins</a></button>
+                <button><a href="<?php echo esc_url( $cabins_group['see_cabins_btn'] ) ?>">See Cabins</a></button>
             </div>
         </section>
 
@@ -52,7 +52,7 @@ get_header();
                 <div id="see-experiences-card">
                     <img id="see-experiences-img" src="<?php echo esc_url( $see_experiences['see_experiences_image']['url'] ); ?>" alt="<?php echo esc_attr( $see_experiences['see_experiences_image']['alt'] ); ?>" />
                     <p> <?php echo esc_html($see_experiences['see_experiences_text']) ?> </p>
-                    <button><a href="<?php $see_experiences['see_experiences_btn'] ?>">See Experiences</a></button>
+                    <button><a href="<?php echo esc_url( $see_experiences['see_experiences_btn'] ); ?>">See Experiences</a></button>
                 </div>
         </section>
 
