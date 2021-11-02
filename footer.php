@@ -12,6 +12,14 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
+		<div class="footer-menus">
+			<nav id="social-nav" class="social-nav">
+				<?php wp_nav_menu( array('theme_location' => 'social') ); ?>
+			</nav>
+			<nav id="footer-nav" class="footer-nav">
+				<?php wp_nav_menu( array('theme_location' => 'footer') ); ?>
+			</nav>
+		</div>
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tonquin-vista' ) ); ?>">
 				<?php
