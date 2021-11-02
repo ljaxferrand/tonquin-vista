@@ -47,9 +47,8 @@ get_header();
 				endif;
 
 			
-		
+				// For "Getting Here" info tab -----------------------------
 				// ACF Google Map Single Map Output
-			
 				
 				$location = get_field('main_office_map');
 				if( $location ): ?>
@@ -63,38 +62,54 @@ get_header();
 					margin: 20px 0;
 				}
 
-
 				.acf-map img {
 				max-width: inherit !important;
 				}
 				</style>
 
+					<h2>Getting Here</h2>
 					<div class="acf-map" data-zoom="16">
 						<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
 					</div>
 				<?php 
-				endif;
+				endif; ?>
 				
+					<!-- For "Contact Info" info tab -------------------------------- -->
 
-				$location = get_field('main_office_map');
-					if( $location ) {
+					<h2>Contact Us</h2>
 
-						// Loop over segments and construct HTML.
-						$address = '';
-						foreach( array('street_number', 'street_name', 'city', 'state', 'post_code', 'country') as $i => $k ) {
-							if( isset( $location[ $k ] ) ) {
-								$address .= sprintf( '<span class="segment-%s">%s</span>, ', $k, $location[ $k ] );
-							}
-						}
+					<?php if( have_rows('address', 125) ): ?>
+						<?php while( have_rows('address', 125) ): the_row(); 
 
-						// Trim trailing comma.
-						$address = trim( $address, ', ' );
+							// Get sub field values.
+							$addressline1 = get_sub_field('street_address');
+							$addressline2 = get_sub_field('address_details');
+							$phone = get_sub_field('phone_number');
 
-						// Display HTML.
-						echo '<p>' . $address . '.</p>';
-					}
+							?>
+								<div id="contact-address">
+										<p><?php echo $addressline1 ?></p>
+										<p><?php echo $addressline2 ?></p>
+										<p><?php echo $phone ?></p>
+								</div>
+						<?php endwhile; ?>
+					<?php endif;
 
+					if ( get_field('contact_page_link') ) :
+						?>
+						<button><a href="<?php the_field( 'contact_page_link' ); ?>"> Visit our Contact Page</a></button>
+						<?php 
+					endif; ?>
 
+					<!-- For "Local Weather" info tab------------------------------------------- -->
+
+					<h2>Local Weather</h2>
+
+					<?php
+					// Weather Atlas Widget shortcode
+					echo do_shortcode( '[shortcode-weather-atlas city_selector=325344 layout="horizontal" background_color="#637368" daily=5 unit_c_f="c"]' ); ?>
+
+			<?php
 			endif;
 		endwhile; ?>
 
