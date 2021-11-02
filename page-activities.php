@@ -57,6 +57,12 @@ get_header();
                             ?>
                             <button><a href="#gift-card-content">Gift Cards</a></button>
 
+                            <div class="testimonial-card">
+                                <?php
+                                get_template_part('template-parts/testimonials-random', get_post_type());
+                                ?>
+                            </div>
+
                             <?php 
                             // Single Experiences pulled into experiences tab
                             $args = array( 
@@ -76,11 +82,6 @@ get_header();
                                     the_content();
                                     ?>
                                     <button id='experience-book-btn'><a href="<?php echo get_permalink() ?>">Book Now</a></button>
-                                    <div class="testimonial-card">
-                                        <?php
-                                        get_template_part('template-parts/testimonials-random', get_post_type());
-                                        ?>
-                                    </div>
                                 </div>
                                 <?php
                             endwhile;
