@@ -52,6 +52,7 @@ if ( ! function_exists( 'tonquin_vista_setup' ) ) :
 			array(
 				'menu-1' => esc_html__( 'Primary', 'tonquin-vista' ),
 				'footer' => esc_html__( 'Footer Menu Location', 'tonquin-vista' ),
+				'social' => esc_html__( 'Social Menu Location', 'tonquin-vista' )
 			)
 		);
 
