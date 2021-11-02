@@ -61,7 +61,11 @@ get_header();
         </div>
 
         <!-- Add random testimonial template part -->
-
+        <div id="testimonial-home">
+            <?php 
+            get_template_part('template-parts/testimonials-random', get_post_type());
+            ?>
+        </div>
 
 	</main><!-- #main -->
 
