@@ -18,7 +18,7 @@
     
         // Create gerenic map.
         var mapArgs = {
-            zoom        : $el.data('zoom') || 16,
+            zoom        : $el.data('zoom') || 10,
             mapTypeId   : google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map( $el[0], mapArgs );
@@ -61,7 +61,8 @@
         // Create marker instance.
         var marker = new google.maps.Marker({
             position : latLng,
-            map: map
+            map: map,
+            icon: 'http://tonquinvista.bcitwebdeveloper.ca/wp-content/uploads/2021/11/raindrop-map-locator-icon-100x100.png',
         });
     
         // Append to reference for later use.
