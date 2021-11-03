@@ -9,7 +9,7 @@
  */
 
 
-
+// Filter for cabin testimonials
 
 if (has_term('Cabins', 'product_cat')) {
     $args = array(
@@ -32,7 +32,7 @@ if (has_term('Cabins', 'product_cat')) {
 
     if ($query->have_posts()) {
 ?>
-        <h4>Guest Testimonials</h4>
+        <h4 >Guest Testimonials</h4>
         <?php
 
         while ($query->have_posts()) {
@@ -46,7 +46,7 @@ if (has_term('Cabins', 'product_cat')) {
         };
         wp_reset_postdata();
     };
-} else if (has_term('Experiences', 'product_cat')) {
+} else if (has_term('Experiences', 'product_cat')) {    // filter for experience testimonials
     $args = array(
         'post_type'      => 'tonquin-testimonials',
         'posts_per_page' => 1,
@@ -81,7 +81,7 @@ if (has_term('Cabins', 'product_cat')) {
         };
         wp_reset_postdata();
     };
-} else {
+} else { // remaining is General only
     $args = array(
         'post_type'      => 'tonquin-testimonials',
         'posts_per_page' => 1,

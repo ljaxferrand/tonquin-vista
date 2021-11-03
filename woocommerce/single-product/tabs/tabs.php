@@ -58,82 +58,96 @@ if (!empty($product_tabs)) : ?>
 <?php
 
 
-$amenities_acf = get_field('amenities_list');
-$rates_header_acf = get_field('rates_header');
-$rates_table_acf = get_field('rates_table');
-
+// Tabs for amenities and rates only (only applies on cabin pages)
+if (has_term('Cabins', 'product_cat')) {
 ?>
-<div class="tabs">
 
-    <?php
-    // Check rows exists.
-    if (have_rows('amenities_list')) :
-    ?>
-        <h3>Amenities</h3>
-        <ul>
-            <?php
-
-            // Loop through rows.
-            while (have_rows('amenities_list')) : the_row();
-
-                // Load sub field value.
-                $sub_value_amenities = get_sub_field('amenities_item');
-            ?>
-                <li>
-
-                    <?php echo $sub_value_amenities ?>
-
-                </li>
-
-        <?php
-
-            // End loop.
-            endwhile;
-
-        
-        endif;
-        ?>
+    <div id="amenities-rates">
+        <ul id="nav-tab" class="nav-tab-ul">
+            <li class="active"><a href="#amenities">Amenities</a></li>
+            <li><a href="#rates">Rates</a></li>
         </ul>
 
-
-        <?php
-        // Check rows exists.
-        if (have_rows('rates_table')) : ?>
-            <h3>Rates</h3>
-            <table style="text-align: left">
-                <tbody>
-                    <?php
-
-                    // Loop through rows.
-                    while (have_rows('rates_table')) : the_row();
-
-                        // Load sub field value.
-                        $sub_value_rates_date = get_sub_field('rates_date_range');
-                        $sub_value_rates_price = get_sub_field('rates_price');
-                    ?>
-                        <tr>
-                            <th><?php echo $sub_value_rates_date ?></th>
-
-
-                        </tr>
-                        <tr>
-                            <td>$<?php echo $sub_value_rates_price ?>/per night</td>
-                        </tr>
+        <div id="tab-content">
+            <div class='tab-pane active' id="amenities">
 
                 <?php
-
-                    // End loop.
-                    endwhile;
-
-                // No value.
-
-
-                endif;
+                // Check rows exists.
+                if (have_rows('amenities_list')) :
                 ?>
-                </tbody>
-            </table>
+                    <h3>Amenities</h3>
+                    <ul>
+                        <?php
+
+                        // Loop through rows.
+                        while (have_rows('amenities_list')) : the_row();
+
+                            // Load sub field value.
+                            $sub_value_amenities = get_sub_field('amenities_item');
+
+                        ?>
+                            <div class="amenities-card-content">
+                                <li>
+
+                                    <?php echo $sub_value_amenities ?>
+
+                                </li>
+                            </div>
+
+                    <?php
+
+                        // End loop.
+                        endwhile;
 
 
+                    endif;
+                    ?>
+                    </ul>
+
+            </div>
+
+            <div class='tab-pane' id="rates">
+                <?php
+                // Check rows exists.
+                if (have_rows('rates_table')) : ?>
+                    <div class="rates-table">
+                        <h3>Rates</h3>
+                        <table style="text-align: left">
+                            <tbody>
+                                <?php
+
+                                // Loop through rows.
+                                while (have_rows('rates_table')) : the_row();
+
+                                    // Load sub field value.
+                                    $sub_value_rates_date = get_sub_field('rates_date_range');
+                                    $sub_value_rates_price = get_sub_field('rates_price');
+                                ?>
+                                    <tr>
+                                        <th><?php echo $sub_value_rates_date ?></th>
 
 
-</div>
+                                    </tr>
+                                    <tr>
+                                        <td>$<?php echo $sub_value_rates_price ?>/per night</td>
+                                    </tr>
+
+                            <?php
+
+                                // End loop.
+                                endwhile;
+
+                            // No value.
+
+
+                            endif;
+
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+            </div>
+
+        </div>
+    <?php }; ?>
