@@ -197,6 +197,8 @@ require get_template_directory() . '/inc/cpt-taxonomy.php';
 /** Requiring file that has custom ACF Google Map settings */
 require get_template_directory() . '/inc/map-settings.php';
 
+
+
 // ** Single Product Information Organisation
 
 remove_action(
@@ -217,6 +219,9 @@ add_action(
 	5
 );
 
+
+
+
 add_action(
 	'woocommerce_single_product_summary', 
 	'woocommerce_output_product_data_tabs', 
@@ -228,6 +233,27 @@ remove_action(
 	'woocommerce_output_product_data_tabs', 
 	10
 );
+
+remove_action(
+	'woocommerce_single_product_summary', 
+	'woocommerce_template_single_meta', 
+	40
+);
+
+remove_action(
+	'woocommerce_after_single_product_summary', 
+	'woocommerce_output_related_products', 
+	20
+);
+
+
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+    unset( $tabs['reviews'] ); 			// Remove the reviews tab
+    return $tabs;
+}
+
 // 
 
 add_action('woocommerce_after_single_product_summary', 'testimonials', 12);
@@ -238,3 +264,24 @@ function testimonials() {
 
 		
 };
+
+add_action('woocommerce_before_single_product_summary', 'check_availability_btn', 20);
+
+function check_availability_btn() {
+
+	echo "<a class='button' href='#wc-bookings-booking-form'>Check Availability</a>";
+
+		
+};
+
+//Scrap below action/function use page id's for links 
+
+add_action('woocommerce_after_single_product_summary', 'see_all_cabins_experiences', 20);
+
+function see_all_cabins_experiences() {
+
+	echo "<br> <a class='button' href='/shop'>See Our Cabins</a> <br> <a class='button' href='/activities'>Explore Experiences</a>";
+
+		
+};
+
