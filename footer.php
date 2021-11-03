@@ -16,6 +16,11 @@
 			<nav id="social-nav" class="social-nav">
 				<?php wp_nav_menu( array('theme_location' => 'social') ); ?>
 			</nav>
+
+			<section class="newsletter">
+			<?php $form_widget = new \MailPoet\Form\Widget();
+			echo $form_widget->widget(array('form' => 0, 'form_type' => 'php')); ?>
+			</section>
 			<nav id="footer-nav" class="footer-nav">
 				<?php wp_nav_menu( array('theme_location' => 'footer') ); ?>
 			</nav>

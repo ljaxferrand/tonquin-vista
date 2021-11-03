@@ -57,6 +57,12 @@ get_header();
                             ?>
                             <button><a href="#gift-card-content">Gift Cards</a></button>
 
+                            <div class="testimonial-card">
+                                <?php
+                                get_template_part('template-parts/testimonials-random', get_post_type());
+                                ?>
+                            </div>
+
                             <?php 
                             // Single Experiences pulled into experiences tab
                             $args = array( 
