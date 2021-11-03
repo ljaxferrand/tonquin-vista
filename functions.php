@@ -149,7 +149,14 @@ function tonquin_vista_scripts() {
 
 	wp_enqueue_script( 'tonquin-vista-activities-tab-control', get_template_directory_uri() . '/js/activities-tab-control.js', array(), _S_VERSION, true );
 
-	wp_enqueue_script( 'tonquin-vista-map', get_template_directory_uri() . '/js/map.js', array(), _S_VERSION, true );
+
+	if (is_page( 'about' ) || is_product_category('cabins')) {
+		wp_enqueue_script('map-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDrRC4kWAjqyK5toxfikbIg-ugY9WTcbco');
+
+		wp_enqueue_script( 'tonquin-vista-map', get_template_directory_uri() . '/js/map.js', array(), _S_VERSION, true );
+	}
+	
+	
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
