@@ -15,15 +15,13 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-            the_title();
+            the_title( '<h1 class="entry-title">', '</h1>' );
 
 			if( function_exists( 'get_field' )) :
                 // Hero banner from ACF
                 $activities_hero = get_field( 'activities_hero' );
 				if ( $activities_hero ) :
-                    
                     echo wp_get_attachment_image( $activities_hero, 'full' );
-                    
                 endif;
                     
                 // Activities Intro (head) Text from ACF
@@ -57,11 +55,12 @@ get_header();
                             ?>
                             <a href="#gift-card-content">Gift Cards</a>
 
-                            <div class="testimonial-card">
-                                <?php
-                                get_template_part('template-parts/testimonials-random', get_post_type());
-                                ?>
-                            </div>
+                            
+                            <?php
+                            // Testimonials card - article tag already in template part
+                            get_template_part('template-parts/testimonials-random', get_post_type());
+                            ?>
+                            
 
                             <?php 
                             // Single Experiences pulled into experiences tab
@@ -91,7 +90,7 @@ get_header();
 
                             $gift_args = array( 
                                 'post_type'      => 'product', 
-                                'posts_per_page' => '1',
+                                'posts_per_page' => '-1',
                                 'product_cat'    => 'gift-cards', 
                                 'orderby'        => 'title',
                             );
@@ -116,6 +115,7 @@ get_header();
 
                         <section class='tab-pane' id="explore">
                             <?php 
+                            // Explore items - Local Vendors and Tourism in the Area
                             $explore_group = get_field( 'explore_group' );
                             
                             if ( $explore_group ) :
