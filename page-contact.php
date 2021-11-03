@@ -35,6 +35,23 @@ get_header();
 					<?php 
 				endif;
 
+				if( have_rows('address', 125) ): ?>
+					<?php while( have_rows('address', 125) ): the_row(); 
+
+						// Get sub field values.
+						$addressline1 = get_sub_field('street_address');
+						$addressline2 = get_sub_field('address_details');
+						$phone = get_sub_field('phone_number');
+
+						?>
+							<div id="contact-address">
+									<p><?php echo $addressline1 ?></p>
+									<p><?php echo $addressline2 ?></p>
+									<p><?php echo $phone ?></p>
+							</div>
+					<?php endwhile;
+				endif;
+
 				if ( get_field('about_btn') ) :
 					?>
 					<a href="<?php the_field( 'about_btn' ); ?>">About Page</a>
