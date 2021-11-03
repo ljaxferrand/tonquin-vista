@@ -62,7 +62,7 @@
         var marker = new google.maps.Marker({
             position : latLng,
             map: map,
-            icon: 'http://tonquinvista.bcitwebdeveloper.ca/wp-content/uploads/2021/11/raindrop-map-locator-icon-100x100.png',
+            icon: 'https://tonquinvista.bcitwebdeveloper.ca/wp-content/uploads/2021/11/raindrop-map-locator-icon-100x100.png',
         });
     
         // Append to reference for later use.
