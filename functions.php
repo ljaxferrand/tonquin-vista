@@ -285,3 +285,6 @@ function see_all_cabins_experiences() {
 		
 };
 
+
+/** Requiring file that has custom Cabins Category Page hooks */
+require get_template_directory() . '/inc/cabins-category-hooks.php';
