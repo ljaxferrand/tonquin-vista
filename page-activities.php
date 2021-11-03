@@ -15,15 +15,15 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			get_template_part( 'template-parts/content', 'page' );
+            the_title();
 
 			if( function_exists( 'get_field' )) :
                 // Hero banner from ACF
                 $activities_hero = get_field( 'activities_hero' );
 				if ( $activities_hero ) :
-                    ?>
-                    <img id="activities-hero" src="<?php echo esc_url( $activities_hero['url'] ); ?>" alt="<?php echo esc_attr( $activities_hero['alt'] ); ?>" />
-                    <?php
+                    
+                    echo wp_get_attachment_image( $activities_hero, 'full' );
+                    
                 endif;
                     
                 // Activities Intro (head) Text from ACF
@@ -43,7 +43,7 @@ get_header();
                     </ul>
 
                     <div id="tab-content">
-                        <div class='tab-pane active' id="experiences">
+                        <section class='tab-pane active' id="experiences">
                             <?php
                             // Intro text for Experience section
                             $experiences_group = get_field( 'experience_group' );
@@ -55,7 +55,7 @@ get_header();
 
                             // Gift Card Button
                             ?>
-                            <button><a href="#gift-card-content">Gift Cards</a></button>
+                            <a href="#gift-card-content">Gift Cards</a>
 
                             <div class="testimonial-card">
                                 <?php
@@ -78,10 +78,11 @@ get_header();
                                 ?>
                                 <div class="experience-card-content">
                                     <h3> <?php echo get_the_title(); ?> </h3>
-                                    <?php                                the_post_thumbnail('full');  
+                                    <?php                                
+                                    the_post_thumbnail('large');  
                                     the_content();
                                     ?>
-                                    <button id='experience-book-btn'><a href="<?php echo get_permalink() ?>">Book Now</a></button>
+                                    <a href="<?php echo get_permalink() ?>" id='experience-book-btn'>Book Now</a>
                                 </div>
                                 <?php
                             endwhile;
@@ -101,18 +102,19 @@ get_header();
                                 ?>
                                 <div id="gift-card-content">
                                     <h3> <?php echo get_the_title(); ?> </h3>
-                                    <?php                                the_post_thumbnail('full');  
+                                    <?php
+                                    the_post_thumbnail('large');  
                                     the_content();
                                     ?>
-                                    <button id='experience-book-btn'><a href="<?php echo get_permalink() ?>">Purchase</a></button>
+                                    <a href="<?php echo get_permalink() ?>" id='gift-card-purchase'>Purchase</a>
                                 </div>
                                 <?php
                             endwhile;
                             wp_reset_postdata();
                         ?>
-                        </div>
+                        </section>
 
-                        <div class='tab-pane' id="explore">
+                        <section class='tab-pane' id="explore">
                             <?php 
                             $explore_group = get_field( 'explore_group' );
                             
@@ -131,15 +133,17 @@ get_header();
                                             while ( have_rows( 'local_vendors' ) ) : 
                                                 the_row();
                                                 ?>
-                                                <div class="vendor-container">
+                                                <article class="vendor-container">
                                                     <h4> <?php the_sub_field('vendor_name'); ?> </h4>
 
                                                     <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>">
-                                                        <img src="<?php echo esc_url( get_sub_field('vendor_logo')['url']); ?>" alt="<?php echo esc_url( get_sub_field('vendor_logo')['alt']); ?>">
+                                                        <?php
+                                                        echo wp_get_attachment_image( get_sub_field( 'vendor_logo' ), 'medium');
+                                                        ?>
                                                     </a>
 
                                                     <p> <?php the_sub_field('vendor_description') ?> </p>
-                                                </div>
+                                                </article>
                                                 <?php
                                             endwhile;
                                         endif;
@@ -158,15 +162,17 @@ get_header();
                                             while ( have_rows( 'tourism' ) ) : 
                                                 the_row();
                                                 ?>
-                                                <div class="tourism-container">
-                                                    <h4> <?php the_sub_field('tourism_name'); ?> </h4>
+                                                <article class="tourism-container">
+                                                    <h4> <?php esc_html( the_sub_field( 'tourism_name' ) ); ?> </h4>
 
                                                     <a href="<?php echo esc_url( get_sub_field('tourism_url')); ?>">
-                                                        <img src="<?php echo esc_url( get_sub_field('tourism_logo')['url']); ?>" alt="<?php echo esc_url( get_sub_field('tourism_logo')['alt']); ?>">
+                                                        <?php
+                                                        echo wp_get_attachment_image( get_sub_field( 'tourism_logo' ), 'medium');
+                                                        ?>
                                                     </a>
 
-                                                    <p> <?php the_sub_field('tourism_description') ?> </p>
-                                                </div>
+                                                    <p> <?php esc_html( the_sub_field('tourism_description') ) ?> </p>
+                                                </article>
                                                 <?php
                                             endwhile;
                                         endif;
@@ -175,7 +181,7 @@ get_header();
 
                             endif;
                             ?>
-                        </div>
+                        </section>
                     </div>
                 </div>
                 
