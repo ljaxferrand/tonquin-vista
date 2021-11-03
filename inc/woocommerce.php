@@ -225,3 +225,106 @@ if ( ! function_exists( 'tonquin_vista_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+// ** Single Product Information Organisation
+
+remove_action(
+	'woocommerce_single_product_summary', 
+	'woocommerce_template_single_title', 
+	5
+);
+
+remove_action(
+	'woocommerce_single_product_summary', 
+	'woocommerce_template_single_price', 
+	10
+);
+
+add_action(
+	'woocommerce_before_single_product_summary', 
+	'woocommerce_template_single_title', 
+	5
+);
+
+add_action(
+	'woocommerce_single_product_summary', 
+	'woocommerce_output_product_data_tabs', 
+	20
+);
+
+remove_action(
+	'woocommerce_after_single_product_summary', 
+	'woocommerce_output_product_data_tabs', 
+	10
+);
+
+remove_action(
+	'woocommerce_single_product_summary', 
+	'woocommerce_template_single_meta', 
+	40
+);
+
+remove_action(
+	'woocommerce_after_single_product_summary', 
+	'woocommerce_output_related_products', 
+	20
+);
+
+// remove the woocommerce sidebar
+
+remove_action( 
+	'woocommerce_sidebar', 
+	'woocommerce_get_sidebar', 
+	10 ); 
+
+// Remove the WooCommerce reviews tab
+
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+    unset( $tabs['reviews'] ); 			// Remove the reviews tab
+    return $tabs;
+}
+
+// randomly generated cabin testimonial
+
+add_action('woocommerce_after_single_product_summary', 'testimonials', 12);
+
+function testimonials() {
+
+	get_template_part( 'template-parts/testimonials', 'random' );	
+
+		
+};
+
+//  check availability button on product page that scrolls you to the availability calendar
+add_action('woocommerce_before_single_product_summary', 'check_availability_btn', 20);
+
+function check_availability_btn() {
+
+	echo "<a class='button' href='#wc-bookings-booking-form'>Check Availability</a>";
+
+		
+};
+
+// Add custom tab content for amenities and rates tabs
+
+add_action('woocommerce_single_product_summary', 'woocommerce_custom_tabs', 20);
+
+function woocommerce_custom_tabs() {
+
+	/** Requiring file that has custom tab content for the cabin pages */
+	get_template_part( 'template-parts/cabin', 'tabs' );
+		
+};
+
+//Links to cabin and experience pages
+
+add_action('woocommerce_after_single_product_summary', 'see_all_cabins_experiences', 20);
+
+function see_all_cabins_experiences() {
+
+	echo "<br> <a class='button' href='/shop'>See Our Cabins</a> <br> <a class='button' href='/activities'>Explore Experiences</a>";
+
+		
+};
