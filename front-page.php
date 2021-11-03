@@ -40,7 +40,7 @@ get_header();
             <section id="see-cabins">
                 <?php 
                 $cabins_group = get_field( 'see_cabins_group' );
-                $terms = get_field( $cabins_group['see_cabins_btn']);
+                $see_cabins_btn = get_field( 'see_cabins_button' );
                 ?>
                 <h2> <?php echo esc_html( $cabins_group['see_cabins_header'] ); ?> </h2>
                 <article id="see-cabin-card">
@@ -48,15 +48,7 @@ get_header();
                     echo wp_get_attachment_image( $cabins_group['see_cabins_image'], 'large' );
                     ?>
                     <p> <?php echo esc_html( $cabins_group['see_cabins_text'] ); ?> </p>
-                    <?php
-                    if ( $terms ) :
-                        foreach ($terms as $term ) :
-                            ?>
-                            <a href="<?php echo esc_url( get_term_link( $term ) ); ?>">See Cabins</a>
-                            <?php
-                        endforeach;
-                    endif;
-                    ?>
+                    <a href="<?php echo esc_url( get_term_link( $see_cabins_btn ) ); ?>">See Cabins</a>                   
                 </article>
             </section>
 
