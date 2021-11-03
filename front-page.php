@@ -11,62 +11,74 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-        <div id="slider-container">
-		    <?php
-		    echo do_shortcode('[smartslider3 slider="2"]');
+        <?php
+        while( have_posts() ) :
+            the_post();
             ?>
-        </div>
 
-        <div id="tonquin-logo">
-            <?php
-            $home_logo = get_field('home_logo');
-            ?>
-            <img id="activities-hero" src="<?php echo esc_url( $home_logo['url'] ); ?>" alt="<?php echo esc_attr( $home_logo['alt'] ); ?>" />
-        </div>
-
-        <div id="home-intro">
-            <?php 
-            $home_intro = get_field('home_intro_text');
-            ?>
-            <p> <?php echo esc_html($home_intro); ?> </p>
-        </div>
-
-
-        <section id="see-cabins">
-            <?php 
-            $cabins_group = get_field('see_cabins_group');
-            ?>
-            <h2> <?php echo esc_html($cabins_group['see_cabins_header']) ?> </h2>
-            <div id="see-cabin-card">
-                <img id="see-cabins-img" src="<?php echo esc_url( $cabins_group['see_cabins_image']['url'] ); ?>" alt="<?php echo esc_attr( $cabins_group['see_cabins_image']['alt'] ); ?>" />
-                <p> <?php echo esc_html($cabins_group['see_cabins_text']) ?> </p>
-                <button><a href="<?php echo esc_url( $cabins_group['see_cabins_btn'] ) ?>">See Cabins</a></button>
-            </div>
-        </section>
-
-        <section id="see-experiences">
-            <?php 
-                $see_experiences = get_field('see_experiences_group');
+            <section id="slider-container">
+                <?php
+                echo do_shortcode('[smartslider3 slider="2"]');
                 ?>
-                <h2> <?php echo esc_html($see_experiences['see_experiences_header']) ?> </h2>
-                <div id="see-experiences-card">
-                    <img id="see-experiences-img" src="<?php echo esc_url( $see_experiences['see_experiences_image']['url'] ); ?>" alt="<?php echo esc_attr( $see_experiences['see_experiences_image']['alt'] ); ?>" />
-                    <p> <?php echo esc_html($see_experiences['see_experiences_text']) ?> </p>
-                    <button><a href="<?php echo esc_url( $see_experiences['see_experiences_btn'] ); ?>">See Experiences</a></button>
-                </div>
-        </section>
+            </section>
 
-        <div id="instagram-container">
-            <?php echo do_shortcode( '[instagram-feed]' ); ?>
-        </div>
+            <section id="tonquin-logo">
+                <?php
+                $home_logo = get_field('home_logo');
+                echo wp_get_attachment_image($home_logo, 'medium');
+                ?>
+            </section>
 
-        <!-- Add random testimonial template part -->
-        <div id="testimonial-home">
-            <?php 
-            get_template_part('template-parts/testimonials-random', get_post_type());
-            ?>
-        </div>
+            <section id="home-intro">
+                <?php 
+                $home_intro = get_field('home_intro_text');
+                ?>
+                <p> <?php echo esc_html($home_intro); ?> </p>
+            </section>
 
+
+            <section id="see-cabins">
+                <?php 
+                $cabins_group = get_field( 'see_cabins_group' );
+                ?>
+                <h2> <?php echo esc_html( $cabins_group['see_cabins_header'] ) ?> </h2>
+                <article id="see-cabin-card">
+                    <?php
+                    echo wp_get_attachment_image( $cabins_group['see_cabins_image'], 'large' );
+                    ?>
+                    <p> <?php echo esc_html( $cabins_group['see_cabins_text'] ) ?> </p>
+                    <a href="<?php echo esc_url( $cabins_group['see_cabins_btn'] ) ?>">See Cabins</a>
+                </article>
+            </section>
+
+            <section id="see-experiences">
+                <?php 
+                    $see_experiences = get_field('see_experiences_group');
+                    ?>
+                    <h2> <?php echo esc_html( $see_experiences['see_experiences_header'] ) ?> </h2>
+                    <article id="see-experiences-card">
+                        <?php
+                        echo wp_get_attachment_image( $see_experiences['see_experiences_image'], 'large');
+                        ?>
+                        <p> <?php echo esc_html( $see_experiences['see_experiences_text'] ) ?> </p>
+                        <a href="<?php echo esc_url( $see_experiences['see_experiences_btn'] ); ?>">See Experiences</a>
+                    </article>
+            </section>
+
+            <section id="instagram-container">
+                <?php echo do_shortcode( '[instagram-feed]' ); ?>
+            </section>
+
+            <!-- Add random testimonial template part -->
+            <section id="testimonial-home">
+                <?php 
+                get_template_part( 'template-parts/testimonials-random', get_post_type() );
+                ?>
+            </section>
+        
+        <?php
+        endwhile;
+        ?>
 	</main><!-- #main -->
 
 <?php

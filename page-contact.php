@@ -20,17 +20,13 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
+			the_title();
 
 			if ( function_exists( 'get_field' )) :
 
 				$contact_img = get_field( 'contact_hero' );
 				if ( $contact_img ) :
-				?>
-				<img id="contact-hero" src="<?php echo esc_url( $contact_img['url'] ); ?>" alt="<?php echo esc_attr( $contact_img['alt'] ); ?>" />
-				
-				<?php 
+					echo wp_get_attachment_image($contact_img, 'full');
 				endif; 
 
 				if ( get_field('contact_header_text') ) :
@@ -41,7 +37,7 @@ get_header();
 
 				if ( get_field('about_btn') ) :
 					?>
-					<button><a href="<?php the_field( 'about_btn' ); ?>">About Page</a></button>
+					<a href="<?php the_field( 'about_btn' ); ?>">About Page</a>
 					<?php 
 				endif;
 				?>
