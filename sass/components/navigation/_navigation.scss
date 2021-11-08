@@ -111,8 +111,8 @@
 
 // Tab Navigation on Activities Page
 #explore-experiences, #amenities-rates{
+	
 	margin: 0 auto;
-
   
 	ul {
 		list-style: none;
@@ -121,26 +121,25 @@
 		li {
 		display: inline-flex;
 		
-		a {
-			text-decoration: none;
-			color: darkgray;
-			padding: 10px;
-			transition: all .3s ease-in-out;
-			border-bottom: 1px solid transparent;
-			&:hover {
-			color: gray;
+			a {
+				text-decoration: none;
+				color: darkgray;
+				padding: 10px;
+				transition: all .3s ease-in-out;
+				border-bottom: 1px solid transparent;
+				&:hover {
+				color: gray;
+				}
 			}
-		}
 		}
 	}
 	
 	.nav-tab-ul .active a{ 
-		color: slateblue; 
-		border-bottom: 1px solid slateblue;
+		color: $color__active_tab; 
 		
 		&:hover {
 			border-color: transparent;
-			background: slateblue;
+			background: $color__active_tab;
 			color: white;
 		}
 	}

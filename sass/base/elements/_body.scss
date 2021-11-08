@@ -1,3 +1,11 @@
 body {
 	background: $color__background-body; // Fallback for when there is no custom background color defined.
+	padding: 0 0.5rem;
+}
+
+@media screen and (min-width: $mq__tablet) {
+
+	body {
+		padding: 0 1rem;
+	}
 }
