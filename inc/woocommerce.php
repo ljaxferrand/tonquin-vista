@@ -288,7 +288,7 @@ function woo_remove_product_tabs( $tabs ) {
 
 // randomly generated cabin testimonial
 
-add_action('woocommerce_after_single_product_summary', 'testimonials', 12);
+add_action('woocommerce_after_single_product_summary', 'testimonials', 9);
 
 function testimonials() {
 
@@ -298,7 +298,7 @@ function testimonials() {
 };
 
 //  check availability button on product page that scrolls you to the availability calendar
-add_action('woocommerce_before_single_product_summary', 'check_availability_btn', 20);
+add_action('woocommerce_single_product_summary', 'check_availability_btn', 5);
 
 function check_availability_btn() {
 
@@ -320,26 +320,18 @@ function woocommerce_custom_tabs() {
 
 //Links to cabin and experience pages
 
-add_action('woocommerce_after_single_product_summary', 'see_all_cabins_experiences_btn', 20);
+add_action('woocommerce_after_single_product_summary', 'see_all_cabins_experiences_btn', 10);
 
 function see_all_cabins_experiences_btn() {
 	$more_cabins_btn = get_field('more_cabins_btn');
-
-	if($more_cabins_btn): ?>
-
-<a class="button" href="<?php echo esc_url(get_term_link($more_cabins_btn)); ?>">See Our <?php echo esc_html($more_cabins_btn->name);?></a>
-<?php 
-	endif;	
-};
-
-add_action('woocommerce_after_single_product_summary', 'see_all_activities_btn', 21);
-
-function see_all_activities_btn() {
-
 	$activities_btn = get_field('see_activities_btn');
-
 ?>
+<section class="product-page-links">
+<a class="button" href="<?php echo esc_url(get_term_link($more_cabins_btn)); ?>">See Our <?php echo esc_html($more_cabins_btn->name);?></a>
+
 <a class="button" href="<?php echo esc_url($activities_btn); ?>">See Activities</a>
+</section>
 <?php
-		
 };
+
+

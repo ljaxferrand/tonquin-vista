@@ -1,0 +1,131 @@
+.single-product div.product .woocommerce-product-gallery .flex-control-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem ;
+
+    li {
+        max-width: 25%;
+        
+    }
+}
+
+.single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li img{
+    width: 100%;
+    height: 100%;
+}
+
+.single-product article.testimonial {
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.single-product {
+
+    a, h1 {
+    text-align: center;
+    }
+}
+
+.single-product div.product div.woocommerce-product-gallery {
+    float: none;
+}
+
+.single-product .button {
+    position: relative;
+    display: block;
+    width: 256px;
+    margin: auto;
+    padding: 1rem .5rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    border: none;
+
+}
+
+.single-product img.wp-post-image {
+     width: 100vw;
+     object-fit: cover;
+     margin: auto;
+}
+
+
+.single-product .woocommerce-tabs ul.tabs {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.woocommerce-tabs ul.tabs .active a {
+    text-decoration: underline;
+}
+
+.woocommerce-tabs ul.tabs li a{
+    text-decoration: none;
+    color: $color__text_main; 
+    
+}
+
+ul.products li.product {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+   
+}
+
+ul.products li.product a {
+    text-decoration: none;
+    color: $color__text_main;
+}
+
+ul.products li.product a:hover {
+
+    color: $color__text_secondary;
+}
+
+ul.products li.product a img {
+    margin-left: auto;
+    margin-right: auto ;
+ 
+}
+
+@media (min-width: $mq__tablet) {
+
+    .single-product ul.products {
+        display: none;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+
+    .single-product ul.products.columns-4 li.product {
+        width: 100%;
+    }
+    
+    .single-product article.testimonial {
+        max-width: 80%;
+        
+    }
+
+    .product-page-links {
+        margin-top: 2rem;
+        display: flex;
+        max-width: 70%;
+        margin-left:auto;
+        margin-right: auto;
+
+    }
+
+    .single-product .woocommerce-tabs ul.tabs {
+        justify-content: space-evenly;
+        max-width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    
+}
