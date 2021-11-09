@@ -152,3 +152,123 @@
 		display: block; 
 	}
 }
+
+// HEADER
+// ------------------------------------------------------------------
+.custom-logo {
+width: 50px;
+height: 50px;
+}
+
+// FOOTER SECTION
+// -------------------------------------------------------------------
+.site-footer {
+	background-color: $color__bg_green;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: $color__tab_text;
+	& a {
+		color: $color__tab_text;
+	}
+	& p {
+		color: $color__tab_text;
+	}
+}
+
+// SOCIAL MENU
+// ------------------------------------------------------------------
+#menu-social-media-menu {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	fill: $color__tab_text;
+	& svg {
+		width: 35px;
+		height: 35px;
+		margin-left: 10px;
+		margin-right: 10px;
+		transition: .2s ease-in-out;
+		&:hover {
+			fill: $color__main_accent
+		}
+	}
+}
+
+@media (min-width: $mq__desktop_small) {
+	#menu-social-media-menu {
+		display: flex;
+		justify-content: flex-end;
+		padding-right: 6%;
+	}
+	#menu-social-media-menu svg {
+		margin-left: 20px;
+		margin-right: 20px; 
+		width: 40px;
+		height: 40px; 
+	}
+}
+
+// NEWSLETTER SECTION
+// ------------------------------------------------------------------
+@media (min-width: $mq__desktop_small) {
+	form.mailpoet_form.mailpoet_form_form.mailpoet_form_php {
+		max-width: 1000px;
+		margin-left: 55%;
+		margin-right: 5%;
+	}
+}
+
+
+// FOOTER NAV MENU 
+// ------------------------------------------------------------------
+#menu-footer-menu {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	margin: 10px 0px 25px 0px;
+	transition: .2s ease-in-out;
+	& li a {
+		text-decoration: none;
+		padding: 5px 0px 10px 0px;
+		&:hover {
+			color: $color__main_accent;
+		}
+	}
+}
+
+@media (min-width: $mq__tablet) {
+	#menu-footer-menu li a {
+		font-size: 20px;
+	}
+}
+
+
+@media (min-width: $mq__desktop_small) {
+	.site-footer {
+		position: relative;
+	}
+	
+	#menu-footer-menu {
+		align-items: flex-start;
+		position: absolute;
+		top: 10%;
+		left: 6%;
+		z-index: 3;
+		& li {
+			padding-bottom: 10px;
+		}
+		& li a {
+			font-size: 1.25rem;
+		}
+	}
+}
+
+.site-info {
+	text-align: center;
+}

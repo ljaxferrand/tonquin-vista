@@ -1,0 +1,35 @@
+.page-id-43 h1 {
+    text-align: center;
+}
+
+// STYLING FOR EACH QUESTION TAB
+.page-id-43 #wpsm_accordion_39 .wpsm_panel-default > .wpsm_panel-heading {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .1s ease-in;
+    border-radius: 10px 10px 0px 0px;
+    background-color: $color__bg_offwhite;
+}
+
+// STYLING FOR EACH ANSWER CONTAINER
+.page-id-43 #wpsm_accordion_39 .wpsm_panel-body {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0px 0px 10px 10px;
+}
+
+// STYLING FOR BUTTON
+.page-id-43 .wp-block-button__link { 
+    color: $color__text_main;
+    background-color: $color__button;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transition: .2s ease-in-out;
+    &:hover {
+        background-color: $color__hover_button;
+    }
+    &:active {
+        transform: translateY(5px);
+    }
+}
