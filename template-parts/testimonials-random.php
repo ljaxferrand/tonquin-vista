@@ -74,8 +74,8 @@ $query = new WP_Query($args);
 
             if (get_field('quote_body')) {
         ?>
-                <blockquote><?php the_field('quote_body'); ?> </blockquote>
-                <cite><?php the_field('quote_author'); ?></cite>
+                <blockquote><?php the_field('quote_body'); ?> - <cite><?php the_field('quote_author'); ?></cite></blockquote>
+                
 </article>
         <?php };
         };
