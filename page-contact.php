@@ -20,13 +20,16 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			
 
 			if ( function_exists( 'get_field' )) :
 
 				$contact_img = get_field( 'contact_hero' );
 				if ( $contact_img ) :
-					echo wp_get_attachment_image($contact_img, 'full');
+					?>
+					<div class="contact-hero-image"><?php echo wp_get_attachment_image($contact_img, 'full');
+					the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					</div> <?php
 				endif; 
 
 				if ( get_field('contact_header_text') ) :
