@@ -28,7 +28,7 @@ get_header();
                 $activities_text = get_field( 'activities_text' );
                 if ( $activities_text ) :
                     ?>
-                    <p id='activites-text'> <?php echo esc_html( $activities_text ); ?> </p>
+                    <p id='activites-text'> <?php echo acf_esc_html( $activities_text ); ?> </p>
                     <?php
                 endif;
                 ?>
@@ -47,13 +47,13 @@ get_header();
                             $experiences_group = get_field( 'experience_group' );
                             if ( $experiences_group ) :
                                 ?>
-                                <p> <?php echo esc_html( $experiences_group['experience_intro'] ); ?> </p>
+                                <p> <?php echo acf_esc_html( $experiences_group['experience_intro'] ); ?> </p>
                                 <?php
                             endif;
 
                             // Gift Card Button
                             ?>
-                            <a href="#gift-card-content">Gift Cards</a>
+                            <a href="#gift-card-section" class='gift-card-btn'><?php echo esc_html( $experiences_group['gift_card_btn_text'] ); ?></a>
 
                             
                             <?php
@@ -87,30 +87,38 @@ get_header();
                             endwhile;
                             wp_reset_postdata(); 
                             
+                            // Gift card Header and intro text
+                            ?>
+                            <section class="gift-card-section" id='gift-card-section'>
+                                <h2><?php echo esc_html( $experiences_group['gift_card_header'] ); ?></h2>
 
-                            $gift_args = array( 
-                                'post_type'      => 'product', 
-                                'posts_per_page' => '-1',
-                                'product_cat'    => 'gift-cards', 
-                                'orderby'        => 'title',
-                            );
-
-                            $gift_query = new WP_Query( $gift_args );
-                            while ( $gift_query->have_posts() ) : 
-                                $gift_query->the_post();
-                                ?>
-                                <div id="gift-card-content">
-                                    <h3> <?php echo get_the_title(); ?> </h3>
-                                    <?php
-                                    the_post_thumbnail('large');  
-                                    the_content();
-                                    ?>
-                                    <a href="<?php echo get_permalink() ?>" id='gift-card-purchase'>Purchase</a>
-                                </div>
+                                <p><?php echo acf_esc_html( $experiences_group['gift_card_text'] ); ?></p>
+                                
                                 <?php
-                            endwhile;
-                            wp_reset_postdata();
-                        ?>
+                                // Output all gift card products
+                                $gift_args = array( 
+                                    'post_type'      => 'product', 
+                                    'posts_per_page' => '-1',
+                                    'product_cat'    => 'gift-cards', 
+                                    'orderby'        => 'title',
+                                );
+
+                                $gift_query = new WP_Query( $gift_args );
+                                while ( $gift_query->have_posts() ) : 
+                                    $gift_query->the_post();
+                                    ?>
+                                    <div class="gift-card-content">
+                                        <h3> <?php echo get_the_title(); ?> </h3>
+                                        <?php
+                                        the_post_thumbnail('large');  
+                                        ?>
+                                        <a href="<?php echo get_permalink() ?>" id='gift-card-purchase'>Purchase</a>
+                                    </div>
+                                    <?php
+                                endwhile;
+                                wp_reset_postdata();
+                                ?>
+                            </section>
                         </section>
 
                         <section class='tab-pane' id="explore">
