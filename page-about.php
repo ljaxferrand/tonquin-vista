@@ -22,14 +22,16 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
+			the_title( '<h1 class="page-title">', '</h1>' );
+
 			if( function_exists( 'get_field' )) :
 
 				$about_img = get_field( 'about_hero' );
 				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-			
-					if ( $about_img ) :
-						echo wp_get_attachment_image( $about_img, $size );
-					endif; ?>
+		
+				if ( $about_img ) :
+					echo wp_get_attachment_image( $about_img, $size );
+				endif; ?>
 				
 				<section class="owner-info"> 
 
@@ -50,55 +52,78 @@ get_header();
 				</section>
 
 				<!-- Info Tabs -->
-				<div id="explore-experiences">
-				<ul id="nav-tab" class="nav-tab-ul">
-                        <li class="active"><a href="#gettinghere">Getting Here</a></li>
-                        <li><a href="#contactinfo">Contact Info</a></li>
+				<div id="explore-experiences" class="about">
+
+					<ul id="nav-tab" class="nav-tab-ul">
+						<li class="active"><a href="#gettinghere">Getting Here</a></li>
+						<li><a href="#contactinfo">Contact Info and Hours</a></li>
 						<li><a href="#localweather">Local Weather</a></li>
-                </ul>
-			
+					</ul>
+				
 					<div id="tab-content">
 						<section class='tab-pane active' id="gettinghere">
 							<?php
+
+							if ( get_field('map_title') ) :
+								?>
+								<h2><?php the_field( 'map_title' ); ?> </h2> 
+								<?php 
+							endif; 
+
+
 							$location = get_field('main_office_map');
 							if( $location ): ?>
 			
 								<div class="acf-map" data-zoom="16">
 									<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
 								</div>
-							<?php 
+
+								<p class="address"><?php echo $location['address']; ?></p>
+								<?php
 							endif; ?>
 						</section>
 
 						<section class='tab-pane' id="contactinfo">
 			
-								<?php if( have_rows('address', 125) ): ?>
-									<?php while( have_rows('address', 125) ): the_row(); 
-			
-										// Get sub field values.
-										$addressline1 = get_sub_field('street_address');
-										$addressline2 = get_sub_field('address_details');
-										$phone = get_sub_field('phone_number');
-			
-									?>
-										<div id="contact-address">
-												<p><?php echo $addressline1 ?></p>
-												<p><?php echo $addressline2 ?></p>
-												<p><?php echo $phone ?></p>
-										</div>
-									<?php endwhile; ?>
-								<?php endif;
-			
-								if ( get_field('contact_page_link') ) :
-									?>
-									<a href="<?php the_field( 'contact_page_link' ); ?>">Visit our Contact Page</a>
-									<?php 
-								endif; ?>
+							<?php if( have_rows('address', 125) ): ?>
+								<?php while( have_rows('address', 125) ): the_row(); 
+		
+									// Get sub field values.
+									$addressline1 = get_sub_field('street_address');
+									$addressline2 = get_sub_field('address_details');
+									$phone = get_sub_field('phone_number'); ?>
+		
+									<div id="contact-address">
+											<p><?php echo $addressline1 ?></p>
+											<p><?php echo $addressline2 ?></p>
+											<p><?php echo $phone ?></p>
+									</div>
+								<?php endwhile; ?>
+							<?php endif;
+
+							if ( get_field('hours') ) :
+								?>
+								<p><?php the_field( 'hours' ); ?> </p> 
+								<?php 
+							endif; 
+		
+							if ( get_field('contact_page_link') ) :
+								?>
+								<a href="<?php the_field( 'contact_page_link' ); ?>">Visit our Contact Page</a>
+								<?php 
+							endif; ?>
 						</section>
 
 						<section class='tab-pane' id="localweather">
 
-							<?php
+							<?php		
+							if ( get_field('weather_heading') ) :
+								?>
+								<h2><?php the_field( 'weather_heading' ); ?> </h2> 
+								<?php 
+							endif; 
+
+					
 							// Weather Atlas Widget shortcode
 							echo do_shortcode( '[shortcode-weather-atlas city_selector=325344 layout="horizontal" background_color="#637368" daily=5 unit_c_f="c"]' ); ?>
 						</section>	
