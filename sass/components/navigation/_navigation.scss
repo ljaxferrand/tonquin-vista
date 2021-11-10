@@ -155,10 +155,24 @@
 
 // HEADER
 // ------------------------------------------------------------------
+@media (min-width: $mq__desktop_small){
+	.site-header {
+		position: relative;
+	}
+}
+
+
 .custom-logo {
 width: 50px;
 height: 50px;
 }
+
+body .menu-toggle {
+	background-color: transparent;
+	border: none;
+} 
+
+
 
 // FOOTER SECTION
 // -------------------------------------------------------------------
@@ -219,6 +233,12 @@ height: 50px;
 		margin-left: 55%;
 		margin-right: 5%;
 	}
+}
+
+
+.mailpoet_submit:active {
+	transition: .2s ease-in;
+	transform: scale(.95);
 }
 
 
