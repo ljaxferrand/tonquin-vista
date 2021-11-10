@@ -7,7 +7,7 @@ function onTabClick(event) {
     });
   
     // activate new tab and panel
-    event.target.parentElement.className += ' active';
+    event.target.className += ' active';
     document.getElementById(event.target.href.split('#')[1]).className += ' active';
   }
   
