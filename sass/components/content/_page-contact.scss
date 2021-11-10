@@ -10,6 +10,7 @@
 }
 
 .page-id-125 a {
+    display: block;
     text-align: center;
     text-decoration: none;
     transition: .2s ease-in-out;
@@ -20,7 +21,6 @@
 
 .contact-hero-image {
     position: relative;
-    width: 100vw;
 }
 
 .page-id-125 h1 {
@@ -90,7 +90,7 @@
         background-color: $color__hover_button;
     }
     &:active {
-        transform: translateY(5px);
+        transform: scale(.95);
     }
 }
 

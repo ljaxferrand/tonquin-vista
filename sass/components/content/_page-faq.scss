@@ -8,7 +8,6 @@
     margin-left: auto;
     margin-right: auto;
     transition: .1s ease-in;
-    border-radius: 10px 10px 0px 0px;
     background-color: $color__bg_offwhite;
 }
 
@@ -30,6 +29,6 @@
         background-color: $color__hover_button;
     }
     &:active {
-        transform: translateY(5px);
+        transform: scale(.95);
     }
 }
