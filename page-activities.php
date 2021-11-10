@@ -15,20 +15,42 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-            the_title( '<h1 class="entry-title">', '</h1>' );
 
 			if( function_exists( 'get_field' )) :
-                // Hero banner from ACF
-                $activities_hero = get_field( 'activities_hero' );
-				if ( $activities_hero ) :
-                    echo wp_get_attachment_image( $activities_hero, 'full' );
-                endif;
+                // Div for overlay purposes
+                ?>
+                <div class="hero-container">
+                    <?php
+                    // page from ACF
+                    $activities_title = get_field( 'activities_title' );
+                    if ( $activities_title ) :
+                        ?>
+                        <h1 class='entry-title'><?php echo esc_html( $activities_title ); ?></h1>
+                        <?php
+                    endif;
+
+                    // Hero banner from ACF
+                    $activities_hero = get_field( 'activities_hero' );
+                    if ( $activities_hero ) :
+                        ?>
+                        <div class="hero-image-container">
+                            <?php
+                            echo wp_get_attachment_image( $activities_hero, 'full' );
+                            ?>
+                        </div>
+                        <?php
+                    endif;
+                    ?>
+                </div>
+                <?php
                     
                 // Activities Intro (head) Text from ACF
                 $activities_text = get_field( 'activities_text' );
                 if ( $activities_text ) :
                     ?>
-                    <p id='activites-text'> <?php echo acf_esc_html( $activities_text ); ?> </p>
+                    <section class="activities-text">
+                        <p> <?php echo acf_esc_html( $activities_text ); ?> </p>
+                    </section>
                     <?php
                 endif;
                 ?>
@@ -36,7 +58,7 @@ get_header();
                 <!-- Style for tabs added to sass/components/navigation/_navigation.scss -->
                 <div id="explore-experiences">
                     <ul id="nav-tab" class="nav-tab-ul">
-                        <li class="active"><a href="#experiences">Experiences</a></li>
+                        <li><a href="#experiences" class="active">Experience</a></li>
                         <li><a href="#explore">Explore</a></li>
                     </ul>
 
@@ -76,9 +98,15 @@ get_header();
                                 $query->the_post();
                                 ?>
                                 <div class="experience-card-content">
-                                    <h3> <?php echo get_the_title(); ?> </h3>
-                                    <?php                                
-                                    the_post_thumbnail('large');  
+                                    <div class="card-top">
+                                        <h3> <?php echo get_the_title(); ?> </h3>
+                                        <div class="card-image">
+                                        <?php                                
+                                        the_post_thumbnail('large');  
+                                        ?>
+                                        </div>
+                                    </div>
+                                    <?php
                                     the_content();
                                     ?>
                                     <a href="<?php echo get_permalink() ?>" id='experience-book-btn'>Book Now</a>
@@ -108,11 +136,16 @@ get_header();
                                     $gift_query->the_post();
                                     ?>
                                     <div class="gift-card-content">
-                                        <h3> <?php echo get_the_title(); ?> </h3>
-                                        <?php
-                                        the_post_thumbnail('large');  
-                                        ?>
-                                        <a href="<?php echo get_permalink() ?>" id='gift-card-purchase'>Purchase</a>
+                                        <div class="card-top">
+                                            <h3 id='gift-card-title'> <?php echo get_the_title(); ?> </h3>
+                                            <div class="card-image">
+                                                <?php
+                                                the_post_thumbnail('large');  
+                                                ?>
+                                            </div>
+                                        
+                                            <a href="<?php echo get_permalink() ?>" id='gift-card-purchase'>Purchase</a>
+                                        </div>
                                     </div>
                                     <?php
                                 endwhile;
@@ -128,9 +161,9 @@ get_header();
                             
                             if ( $explore_group ) :
                                 ?>
-                                <p> <?php echo esc_html( $explore_group['explore_intro'] ); ?> </p>
+                                <p> <?php echo acf_esc_html( $explore_group['explore_intro'] ); ?> </p>
 
-                                <h3> <?php echo esc_html( $explore_group['vendors_title'] ); ?> </h3>
+                                <h2> <?php echo esc_html( $explore_group['vendors_title'] ); ?> </h2>
                                 
                                 <?php
                                 //Repeater for local vendors 
@@ -142,7 +175,7 @@ get_header();
                                                 the_row();
                                                 ?>
                                                 <article class="vendor-container">
-                                                    <h4> <?php the_sub_field('vendor_name'); ?> </h4>
+                                                    <h3> <?php the_sub_field('vendor_name'); ?> </h3>
 
                                                     <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>">
                                                         <?php
@@ -159,7 +192,7 @@ get_header();
                                 endif;  
                                 ?>
 
-                                <h3><?php echo esc_html( $explore_group['tourism_title'] ); ?></h3>
+                                <h2 id='tourism-heading'><?php echo esc_html( $explore_group['tourism_title'] ); ?></h2>
 
                                  <?php
                                 //Repeater for Tourism Group
@@ -171,7 +204,7 @@ get_header();
                                                 the_row();
                                                 ?>
                                                 <article class="tourism-container">
-                                                    <h4> <?php esc_html( the_sub_field( 'tourism_name' ) ); ?> </h4>
+                                                    <h3> <?php esc_html( the_sub_field( 'tourism_name' ) ); ?> </h3>
 
                                                     <a href="<?php echo esc_url( get_sub_field('tourism_url')); ?>">
                                                         <?php
