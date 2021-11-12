@@ -110,6 +110,7 @@
 
 
 // Tab Navigation on Activities Page
+// ----------------------------------------------------------------------------------------------
 #amenities-rates{
 	
 	margin: 0 auto;
@@ -153,26 +154,160 @@
 	}
 }
 
-// HEADER
-// ------------------------------------------------------------------
+// MOBILE NAVIGATION & HEADER
+// ------------------------------------------------------------------------------------------
+.site-header {
+	background-color: $color__bg_green;
+	display: flex;
+	z-index: 10;
+}
+
+#site-navigation {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.site-branding {
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+	justify-content: center;
+}
+
 @media (min-width: $mq__desktop_small){
 	.site-header {
 		position: relative;
 	}
 }
 
-
 .custom-logo {
 width: 50px;
 height: 50px;
+margin-left: 10px;
+margin-right: 35px;
+}
+
+.site-title {
+	font-family: "megrim";
+	font-size: 1.25rem;
+	font-weight: 400;
+	text-transform: lowercase;
+	& a {
+		text-decoration: none;
+		color: $color__main_accent;
+	}
 }
 
 body .menu-toggle {
 	background-color: transparent;
 	border: none;
+	padding-right: 25px;
 } 
 
+.main-navigation.toggled #primary-menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80%;
+	height: 100vh;
+	z-index: 10;
+	background-color: $color__bg_offwhite;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	border-right: 1px solid	rgba(52, 51, 51, 0.201);
+	& li a {
+		color: $color__text_main;
+		font-size: 1.25rem;
+		transition: .2s ease-in;
+		&:hover {
+			color: $color__main_accent;
+		}
+	}
+}
+// STYLES AT FIRST WORDPRESS BREAKPOINT
+@media (min-width: 600px) {
+	.site-header {
+		position: absolute;
+		width: 100%;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.303), rgba(0, 0, 0, 0));
+	}
+	.nav-menu {
+		padding-right: 20px;
+	}
+	.menu-header-menu-container {
+		padding-bottom: 25px;
+	}
+	.menu-header-menu-container .nav-menu a {
+		padding-left: 20px;
+		color: white;
+		text-transform: uppercase;
+		font-size: .85rem;
+		transition: .2s ease-in-out;
+		&:hover {
+			color: $color__main_accent;
+		}
+	}
+	.site-title a {
+		color: white;
+	}
+}
+// STYLES AT TABLET BREAKPOINT 
+@media (min-width: 768px) {
+	.site-title {
+		font-size: 1.25rem;
+		font-weight: 800;
+	}
+	.nav-menu {
+		padding-right: 40px;
+	}
+	.menu-header-menu-container .nav-menu a {
+		padding-left: 25px;
+		text-transform: uppercase;
+		font-size: 1.15rem;
+		font-weight: 400;
+	}
+}
 
+@media (min-width: $mq__desktop_small) {
+	.site-title {
+		font-size: 2.25rem;
+		font-weight: 800;
+	}
+	.menu-header-menu-container {
+		padding-right: 50px;
+	}
+	.menu-header-menu-container .nav-menu a {
+		padding-left: 50px;
+		text-transform: uppercase;
+		font-size: 1.5rem;
+		font-weight: 400;
+	}
+	.custom-logo {
+		margin-left: 50px;
+		width: 90px;
+		height: 90px;
+		margin-bottom: 10px;
+	}
+}
+
+@media (min-width: $mq__desktop_wide) {
+	.custom-logo {
+		width: 100px;
+		height: 100px;
+	}
+	.menu-header-menu-container {
+		padding-right: 75px;
+	}
+	.menu-header-menu-container .nav-menu a {
+		padding-left: 75px;
+		text-transform: uppercase;
+		font-size: 1.75rem;
+		font-weight: 400;
+	}
+}
 
 // FOOTER SECTION
 // -------------------------------------------------------------------
@@ -230,15 +365,19 @@ body .menu-toggle {
 @media (min-width: $mq__desktop_small) {
 	form.mailpoet_form.mailpoet_form_form.mailpoet_form_php {
 		max-width: 1000px;
-		margin-left: 55%;
+		margin-left: 50%;
 		margin-right: 5%;
 	}
 }
 
-
 .mailpoet_submit:active {
 	transition: .2s ease-in;
 	transform: scale(.95);
+}
+
+.mailpoet_submit:hover {
+	transition: .2s ease-in;
+	background-color: $color__bg_offwhite;
 }
 
 
