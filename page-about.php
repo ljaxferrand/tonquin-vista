@@ -109,7 +109,7 @@ get_header();
 		
 							if ( get_field('contact_page_link') ) :
 								?>
-								<a href="<?php the_field( 'contact_page_link' ); ?>">Visit our Contact Page</a>
+								<a class="button" href="<?php the_field( 'contact_page_link' ); ?>">Visit our Contact Page</a>
 								<?php 
 							endif; ?>
 						</section>

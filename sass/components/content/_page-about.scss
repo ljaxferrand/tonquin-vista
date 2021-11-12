@@ -13,6 +13,7 @@
     @include center-block;
     max-width: 875px;
     padding: 2rem 0;
+    margin-bottom: 3.125rem;
     background-color: $color__bg_offwhite;
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -27,15 +28,31 @@
         margin: 0 auto;
         padding: 1rem 0;
     }
+
+    .button {
+        text-decoration: none;
+        color: #fff;
+        background-color: #dcb00b;
+        padding: 0.7rem 1.1rem;
+        border-radius: 30px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        text-align: center;
+        max-width: 300px;
+        box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    }
 }
+
 
 #contact-address p{
     @include center-block;
 }
 
 @media screen and (min-width: 475px) {
- #contactinfo {
-     display: flex;
-     flex-direction: row;
+ #contactinfo :not(.button) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
  }
 }
