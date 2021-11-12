@@ -10,6 +10,10 @@
     }
 }
 
+.single-product .up-sells {
+    display: none;
+}
+
 .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li img{
     width: 100%;
     height: 100%;
@@ -23,9 +27,136 @@
 
 .single-product {
 
-    a, h1 {
+    a {
     text-align: center;
     }
+    .site-main {
+        margin: .5rem;
+    }
+
+    .woocommerce-tabs ul.tabs li {
+        display: none;
+
+        
+    }
+
+    .woocommerce-tabs .panel h2:first-of-type {
+        display: none;
+    }
+
+    // Tab Navigation on Activities Page
+    #amenities-rates {
+            
+        margin: 1rem auto;
+        
+        // Tabs on activites page for experience and explore
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: 100%;
+            margin: 0;
+            // margin-bottom: 1rem;
+            
+            li {
+                
+                width: 50%;
+                display: block;
+                text-align: center;
+                padding: 1rem 0;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            
+                a {
+                    text-decoration: none;
+                    color: rgb(255, 255, 255);
+                    padding: 10px;
+                    transition: all .3s ease-in-out;
+                    border-bottom: 1px solid transparent;
+                    font-size: 1.2em;
+                    
+                    &:hover {
+                    
+                    }
+                }
+            }
+
+            li:not(.active) {
+                background-color: #182612ac;
+
+                
+            }
+
+            li.active {
+                background-color: $color__active_tab;
+
+                a {
+                    color: white;
+                }
+            }
+        }
+        
+        .tab-pane { 
+            display: none;
+        }
+        
+        .tab-pane.active { 
+            display: block; 
+        }
+
+    }
+
+        #amenities {
+            border-radius: 0 0 15px 15px;
+            background-color: $color__bg_offwhite;
+            padding: 1rem 0;
+
+            h3 {
+                margin: 0;
+                padding-left: 1rem;
+            }
+            
+            ul {
+            
+            flex-direction: column;
+
+            .amenities-card-content {
+                padding-left: 1rem;
+            
+            li {
+                text-align: left;
+                background-color: transparent;
+                padding: .2rem;
+                list-style: disc;
+                display: list-item;
+                margin-left: 1.2rem;
+                width: 90%;
+
+            }
+        }
+        }
+
+        }
+
+        #rates {
+
+            border-radius: 0 0 15px 15px;
+            background-color: $color__bg_offwhite;
+            padding: 1rem 1rem;
+            
+            .rates-table {
+                
+                table {
+                    margin-left: auto;
+                    margin-right: auto ;
+                }
+            }
+
+        }
+            
+            
 }
 
 .single-product div.product div.woocommerce-product-gallery {
@@ -39,7 +170,7 @@
     margin: auto;
     padding: 1rem .5rem;
     margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
     border: none;
 
 }
@@ -59,17 +190,17 @@
     margin-right: auto;
 }
 
-.woocommerce-tabs ul.tabs .active a {
+.single-product .woocommerce-tabs ul.tabs .active a {
     text-decoration: underline;
 }
 
-.woocommerce-tabs ul.tabs li a{
+.single-product .woocommerce-tabs ul.tabs li a{
     text-decoration: none;
     color: $color__text_main; 
     
 }
 
-ul.products li.product {
+.single-product ul.products li.product {
     max-width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -77,17 +208,26 @@ ul.products li.product {
    
 }
 
-ul.products li.product a {
+.single-product article.testimonial {
+    max-width: 100%;
+    padding: .5rem 1rem 2rem 1rem;
+    background-color: $color__bg_offwhite;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    
+}
+
+.single-product ul.products li.product a {
     text-decoration: none;
     color: $color__text_main;
 }
 
-ul.products li.product a:hover {
+.single-product ul.products li.product a:hover {
 
     color: $color__text_secondary;
 }
 
-ul.products li.product a img {
+.single-product ul.products li.product a img {
     margin-left: auto;
     margin-right: auto ;
  
@@ -106,11 +246,14 @@ ul.products li.product a img {
     }
     
     .single-product article.testimonial {
-        max-width: 80%;
+        max-width: 100%;
+        padding: .5rem 1rem 2rem 1rem;
+        background-color: $color__bg_offwhite;
+        border-radius: 15px;
         
     }
 
-    .product-page-links {
+    .single-product .product-page-links {
         margin-top: 2rem;
         display: flex;
         max-width: 70%;
@@ -126,6 +269,42 @@ ul.products li.product a img {
         margin-right: auto;
     }
 
+    .single-product .site-main {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 
     
+}
+
+@media (min-width: $mq__desktop_small) {
+
+    .single-product .site-main {
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: $mq__desktop_wide) {
+
+    .single-product .site-main {
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.bookable a {
+	background-color: $color__bg_green !important;
+}
+
+#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.ui-datepicker-current-day a {
+	background-color: $color__main_accent !important; 
+} 
+
+#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.bookable-range a {
+    background-color: $color__main_accent !important;
 }

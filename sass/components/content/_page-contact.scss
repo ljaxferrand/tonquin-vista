@@ -29,12 +29,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white; 
+    text-transform: uppercase;
 }
 
 @media (min-width: $mq__tablet) {
    .page-id-125 h1 {
        font-size: 3.5rem;
    }
+}
+
+.page-id-125 h2 {
+    font-weight: 400;
 }
 
 .page-id-125 #contact-address {

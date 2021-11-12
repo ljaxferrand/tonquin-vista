@@ -282,7 +282,8 @@ remove_action(
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
 function woo_remove_product_tabs( $tabs ) {
-    unset( $tabs['reviews'] ); 			// Remove the reviews tab
+    unset( $tabs['reviews'] )	;		// Remove the reviews tab
+	unset( $tabs['accommodation_booking_time'] ); //remove check in/out times tab
     return $tabs;
 }
 
@@ -333,5 +334,7 @@ function see_all_cabins_experiences_btn() {
 </section>
 <?php
 };
+
+
 
 
