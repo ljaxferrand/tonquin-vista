@@ -32,7 +32,10 @@
 
                 img {
                     width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                     vertical-align: top;
+                    max-height: 100vh;
                 }
 
                 &:after {
@@ -49,8 +52,15 @@
 
         .activities-text {
 
+            margin: 0 auto;
+            background-color: $color__bg_offwhite;
+
             p {
-                padding: 0 0.5rem;
+                padding: 1rem 0.5rem;
+                margin:0 auto;
+                text-align: center;
+                font-size: 1.1em;
+                max-width: 800px;
             }
         }
 
@@ -58,6 +68,7 @@
         #explore-experiences {
             
             margin: 0 auto;
+            background: linear-gradient(180deg, $color__bg_offwhite, $color__background-body 4.5%);
             
             // Tabs on activites page for experience and explore
             ul {
@@ -67,8 +78,10 @@
                 flex-direction: row;
                 flex-wrap: nowrap;
                 width: 100%;
-                margin: 0;
+                margin: 0 auto;
                 margin-bottom: 1rem;
+                background-color: $color__bg_offwhite;
+                max-width: 900px;
                 
                 li {
                     width: 50%;
@@ -133,8 +146,13 @@
             // Content within tabs
             section#experiences {
 
-                p {
-                    padding: 0 1rem;
+                div.experience-intro {
+                    max-width: 800px;
+                    margin: 0 auto;
+
+                    p {
+                        padding: 0 1rem;
+                    }
                 }
 
                 // Link to gift card products on same page
@@ -155,11 +173,12 @@
                 // Testimonial under gift card button
                 .testimonial {
                     
-                    margin: 2rem 0.8rem;
-                    background-color: #637368c6;
+                    margin: 2rem auto;
+                    background-color: $color__bg_offwhite;
                     border-radius: 10px;
                     padding: 1rem 1.5rem;
                     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    max-width: 470px;
 
                     h4 {
                         display: none;
@@ -178,78 +197,88 @@
                     }
                 }
 
-                // Experience cards
-                .experience-card-content,
-                .gift-card-content {
+                .card-container {
+                    margin: 0 0.8rem;
 
-                    background-color: $color__bg_offwhite;
-                    padding: 0.5rem;
-                    margin: 2rem 0.6rem;
-                    // border: 2px solid #dcaf0b4f;
-                    border-radius: 10px;
-                    box-shadow: rgba(50, 50, 93, 0.15) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                    // Experience and gift card cards
+                    .experience-card-content,
+                    .gift-card-content {
 
-                    .card-top {
+                        background-color: $color__bg_offwhite;
+                        padding: 0.5rem;
+                        margin: 2rem auto;
+                        // border: 2px solid #dcaf0b4f;
+                        border-radius: 10px;
+                        box-shadow: rgba(50, 50, 93, 0.15) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                        max-width: 500px;
 
-                        position: relative;
-
-                        h3 {
-                            text-align: center;
-                            color: $color__tab_text;
-                            font-size: 1.5em;
-                            padding: 0 0.5rem;
-                            position: absolute;
-                            top: 0;
-                            bottom: 0;
-                            left: 0;
-                            right: 0;
-                            height: 42px;
-                            margin: auto;  
-                            z-index: 10; 
-                        }
-                        
-                        .card-image {
+                        .card-top {
 
                             position: relative;
 
-                            img {
-                                width: 100%;
-                                vertical-align: top;
-                                border-radius: 10px;
-                            }
-
-                            &:after {
-
-                                content: '\A';
+                            h3 {
+                                text-align: center;
+                                color: $color__tab_text;
+                                font-size: 1.5em;
+                                padding: 0 0.5rem;
                                 position: absolute;
-                                width: 100%; height:100%;
-                                top:0; left:0;
-                                background:rgba(0,0,0,0.5);
-                                border-radius: 10px;
+                                top: 0;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                height: 42px;
+                                margin: auto;  
+                                z-index: 10; 
+                            }
+                            
+                            .card-image {
 
+                                position: relative;
+
+                                img {
+                                    width: 100%;
+                                    vertical-align: top;
+                                    border-radius: 10px;
+                                }
+
+                                &:after {
+
+                                    content: '\A';
+                                    position: absolute;
+                                    width: 100%; height:100%;
+                                    top:0; left:0;
+                                    background:rgba(0,0,0,0.5);
+                                    border-radius: 10px;
+
+                                }
                             }
                         }
-                    }
 
-                    p {
-                        font-size: 0.9em;
-                    }
+                        .experience-text-container {
+                            margin: 1rem 0;
 
-                    a {
-                        text-decoration: none;
-                        color: #fff;
-                        background-color: $color__button;
-                        padding: 0.7rem 1.1rem;
-                        border-radius: 30px;
-                        display: block;
-                        margin: 0 auto;
-                        margin-bottom: 1rem;
-                        text-align: center;
-                        max-width: 125px;
-                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
-                    }
+                            p {
+                                font-size: 0.9em;
+                                padding: 0 1rem;
+                            }
+                        }
 
-                } 
+                        a {
+                            text-decoration: none;
+                            color: #fff;
+                            background-color: $color__button;
+                            padding: 0.7rem 1.1rem;
+                            border-radius: 30px;
+                            display: block;
+                            margin: 0 auto;
+                            margin-bottom: 1rem;
+                            text-align: center;
+                            max-width: 125px;
+                            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+                        }
+
+                    } 
+                }
 
                 // Gift card product cards
                 .gift-card-section {
@@ -258,6 +287,12 @@
 
                     h2 {
                         text-align: center;
+                    }
+
+                    p {
+                        max-width: 800px;
+                        text-align: center;
+                        margin: 1rem auto;
                     }
 
                     h3#gift-card-title {
@@ -335,6 +370,147 @@
 
         .site {
 
+            .hero-container {
+
+                h1 {
+                    font-size: 4em;
+                    height: 110px;
+                }
+
+            }
+
+            .activities-text {
+
+                p {
+
+                }
+            }
+
+            #explore-experiences {
+
+                ul {
+
+                    li {
+
+                        a {
+
+                        }
+                    }
+                }
+
+                section#experiences {
+
+                    // Intro text in experince section
+                    div.experience-intro {
+
+
+                    }
+
+                    // Button at bottom of text
+                    a.gift-card-btn {
+
+                    }
+
+                    // Testimonial card
+                    .testimonial {
+
+                    }
+
+                    // Class for containing cards for expereinces and gift card products
+                    .card-container {
+
+                        .experience-card-content,
+                        .gift-card-content {
+                        
+                        
+
+                            .card-top {
+
+                                h3 {
+                                    font-size: 1.8em;
+                                }
+
+                                .card-image {
+
+                                }
+                            }
+
+                            p {
+                                
+                            }
+
+                            a {
+
+                            }
+
+                            &:nth-of-type(even) {
+                                margin-left: 38vw;
+                            }
+
+                            &:nth-of-type(odd) {
+                                margin-right: 38vw;
+                            }
+                        }
+                    }
+
+                    // Gift card - title, card, purchase button
+                    .gift-card-section {
+
+                        // Title for section
+                        h2 {
+
+                        }
+
+                        // Title on gift card cards
+                        h3#gift-card-title {
+
+                        }
+
+                        // Purchase button
+                        .gift-card-content {
+
+                            a#gift-card-purchase {
+
+                            }
+                        }
+                    }
+                }
+
+                // Explore tab section
+                section#explore {
+
+                    // Intro text
+                    p {
+
+                    }
+
+                    // "Local Vendors" heading
+                    h2 {
+                        
+                    }
+
+                    h2#tourism-heading {
+
+                    }
+
+                    // Container for each vendor
+                    .vendor-container,
+                    .tourism-container {
+
+                        h3 {
+
+                        }
+
+                        img {
+                            
+                        }
+
+                        p {
+
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -346,7 +522,163 @@
     .page-id-50 {
 
         .site {
-    
+
+            .hero-container {
+
+                h1 {
+                    font-size: 4.5em;
+                }
+
+            }
+
+            .activities-text {
+
+                p {
+                    font-size: 1.1em;
+                }
+            }
+
+            #explore-experiences {
+
+                ul {
+
+                    li {
+
+                        a {
+
+                        }
+                    }
+                }
+
+                section#experiences {
+
+                    // Intro text in experince section
+                    div.experience-intro {
+                        p {
+                            font-size: 1.1em;
+                        }
+                    }
+
+                    // Button at bottom of text
+                    a.gift-card-btn {
+
+                    }
+
+                    // Testimonial card
+                    .testimonial {
+
+                    }
+
+                    // Class for containing cards for expereinces and gift card products
+                    .card-container {
+
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-evenly;
+                        margin: 0 auto;
+                        max-width: 1100px;
+
+                        .experience-card-content,
+                        .gift-card-content {
+                        
+                            margin: 1.5rem auto;
+                            position: relative;
+
+                            .card-top {
+
+                                h3 {
+
+                                }
+
+                                .card-image {
+
+                                }
+                            }
+
+                            .experience-text-container {
+                                margin-top: 2rem;
+                                margin-bottom: 5rem;
+
+                                p {
+                                    font-size: 1.1em;
+                                }
+                            }
+
+                            a {
+                                position: absolute;
+                                bottom: 10px;
+                                left: 0;
+                                right: 0;
+                            }
+
+                            &:nth-of-type(even) {
+                                margin-left: auto;
+                            }
+
+                            &:nth-of-type(odd) {
+                                margin-right: auto;
+                            }
+                        }
+                    }
+
+                    // Gift card - title, card, purchase button
+                    .gift-card-section {
+
+                        // Title for section
+                        h2 {
+
+                        }
+
+                        // Title on gift card cards
+                        h3#gift-card-title {
+
+                        }
+
+                        // Purchase button
+                        .gift-card-content {
+
+                            a#gift-card-purchase {
+
+                            }
+                        }
+                    }
+                }
+
+                // Explore tab section
+                section#explore {
+
+                    // Intro text
+                    p {
+
+                    }
+
+                    // "Local Vendors" heading
+                    h2 {
+                        
+                    }
+
+                    h2#tourism-heading {
+
+                    }
+
+                    // Container for each vendor
+                    .vendor-container,
+                    .tourism-container {
+
+                        h3 {
+
+                        }
+
+                        img {
+                            
+                        }
+
+                        p {
+
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -357,7 +689,146 @@
     .page-id-50 {
 
         .site {
-    
+
+            .hero-container {
+
+                h1 {
+                    height: 160px;
+                    font-size: 5em;
+                }
+
+            }
+
+            .activities-text {
+
+                p {
+
+                }
+            }
+
+            #explore-experiences {
+
+                ul {
+
+                    li {
+
+                        a {
+
+                        }
+                    }
+                }
+
+                section#experiences {
+
+                    // Intro text in experince section
+                    div.experience-intro {
+
+
+                    }
+
+                    // Button at bottom of text
+                    a.gift-card-btn {
+
+                    }
+
+                    // Testimonial card
+                    .testimonial {
+
+                    }
+
+                    // Class for containing cards for expereinces and gift card products
+                    .card-container {
+
+                        max-width: 1400px;
+
+                        .experience-card-content,
+                        .gift-card-content {
+                        
+                            max-width: 600px;
+
+                            .card-top {
+
+                                h3 {
+                                    font-size: 2.1em;
+                                }
+
+                                .card-image {
+
+                                }
+                            }
+
+                            .experience-text-container {
+                                margin-bottom: 6rem;
+
+                                p {
+                                    
+                                }
+                            }
+
+                            a {
+
+                            }
+                        }
+                    }
+
+                    // Gift card - title, card, purchase button
+                    .gift-card-section {
+
+                        // Title for section
+                        h2 {
+
+                        }
+
+                        // Title on gift card cards
+                        h3#gift-card-title {
+
+                        }
+
+                        // Purchase button
+                        .gift-card-content {
+
+                            a#gift-card-purchase {
+
+                            }
+                        }
+                    }
+                }
+
+                // Explore tab section
+                section#explore {
+
+                    // Intro text
+                    p {
+
+                    }
+
+                    // "Local Vendors" heading
+                    h2 {
+                        
+                    }
+
+                    h2#tourism-heading {
+
+                    }
+
+                    // Container for each vendor
+                    .vendor-container,
+                    .tourism-container {
+
+                        h3 {
+
+                        }
+
+                        img {
+                            
+                        }
+
+                        p {
+
+                        }
+                    }
+                }
+            }
         }
     }
 }

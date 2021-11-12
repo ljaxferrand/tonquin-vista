@@ -69,7 +69,9 @@ get_header();
                             $experiences_group = get_field( 'experience_group' );
                             if ( $experiences_group ) :
                                 ?>
-                                <p> <?php echo acf_esc_html( $experiences_group['experience_intro'] ); ?> </p>
+                                <div class="experience-intro">
+                                    <p> <?php echo acf_esc_html( $experiences_group['experience_intro'] ); ?> </p>
+                                </div>
                                 <?php
                             endif;
 
@@ -94,6 +96,9 @@ get_header();
                             );
 
                             $query = new WP_Query( $args );
+                            ?>
+                            <div class="card-container">
+                            <?php
                             while ( $query->have_posts() ) : 
                                 $query->the_post();
                                 ?>
@@ -106,14 +111,19 @@ get_header();
                                         ?>
                                         </div>
                                     </div>
-                                    <?php
-                                    the_content();
-                                    ?>
+                                    <div class="experience-text-container">
+                                        <?php
+                                        the_content();
+                                        ?>
+                                    </div>
                                     <a href="<?php echo get_permalink() ?>" id='experience-book-btn'>Book Now</a>
                                 </div>
                                 <?php
                             endwhile;
                             wp_reset_postdata(); 
+                            ?>
+                            </div>
+                            <?php
                             
                             // Gift card Header and intro text
                             ?>
@@ -132,6 +142,9 @@ get_header();
                                 );
 
                                 $gift_query = new WP_Query( $gift_args );
+                                ?>
+                                <div class="card-container">
+                                <?php
                                 while ( $gift_query->have_posts() ) : 
                                     $gift_query->the_post();
                                     ?>
@@ -151,6 +164,7 @@ get_header();
                                 endwhile;
                                 wp_reset_postdata();
                                 ?>
+                                </div>
                             </section>
                         </section>
 
