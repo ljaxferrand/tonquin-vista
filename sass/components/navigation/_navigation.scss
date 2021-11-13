@@ -283,6 +283,10 @@ body .menu-toggle {
 	}
 }
 
+.sub-menu .menu-item a {
+	font-size: 1rem;
+	text-align: left;
+}
 
 
 // STYLES AT FIRST WORDPRESS BREAKPOINT
@@ -338,6 +342,10 @@ body .menu-toggle {
 }
 // STYLES AT TABLET BREAKPOINT 
 @media (min-width: 768px) {
+	.sub-menu .menu-item a {
+		font-size: 1rem;
+		text-align: left;
+	}
 	.site-title {
 		font-size: 1.25rem;
 		font-weight: 800;
