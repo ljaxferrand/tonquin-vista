@@ -185,17 +185,17 @@
 width: 50px;
 height: 50px;
 margin-left: 10px;
-margin-right: 35px;
+margin-right: 25px;
 }
 
 .site-title {
 	font-family: "megrim";
-	font-size: 1.25rem;
-	font-weight: 400;
+	font-size: 1.3rem;
+	font-weight: 800;
 	text-transform: lowercase;
 	& a {
 		text-decoration: none;
-		color: $color__main_accent;
+		color: $color__bg_offwhite;
 	}
 }
 
@@ -203,7 +203,38 @@ body .menu-toggle {
 	background-color: transparent;
 	border: none;
 	padding-right: 25px;
+	padding-left: 0;
 } 
+
+.main-navigation {
+	width: 25%;
+}
+@media (min-width: 350px){
+	.main-navigation {
+		width: 36%;
+	}
+	.site-title {
+		padding-left: 15px;
+		font-size: 1.5;
+	}
+}
+
+@media (min-width: 400px){
+	.main-navigation {
+		width: 40%;
+	}
+	.site-title {
+		font-size: 1.4rem;
+	}
+}
+@media (min-width: 475px){
+	.main-navigation {
+		width: 50%;
+	}
+	.site-title {
+		font-size: 1.5rem;
+	}
+}
 
 .main-navigation.toggled #primary-menu {
 	position: absolute;
@@ -216,29 +247,84 @@ body .menu-toggle {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	align-items: center;
+	align-items: left;
+	padding-left: 40px;
 	border-right: 1px solid	rgba(52, 51, 51, 0.201);
 	& li a {
 		color: $color__text_main;
 		font-size: 1.25rem;
 		transition: .2s ease-in;
+		font-weight: 200;
+		
 		&:hover {
 			color: $color__main_accent;
 		}
 	}
 }
+
+// SUBMENU 
+.main-navigation ul ul {
+	display: flex;
+	flex-direction: column;
+	background-color: #b9bfb0;
+	padding: 10px;
+	border-radius: 0px 0px 5px 5px;
+	& a {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		font-size: 1rem;
+		padding-left: 5px;
+		&:hover {
+			border-radius: 0px 0px 10px 0px;
+			transition: .25s ease-in-out;
+			background-color: #3d7d21;
+			transform: translateX(40px);
+		}
+	}
+}
+
+.sub-menu .menu-item a {
+	font-size: 1rem;
+	text-align: left;
+}
+
+
 // STYLES AT FIRST WORDPRESS BREAKPOINT
 @media (min-width: 600px) {
+	.sub-menu .menu-item a {
+		font-size: 1rem;
+	}
+	.site-title {
+		border-bottom: solid 5px $color__main_accent;
+		padding-left: 0;
+	}
+	.main-navigation ul ul {
+		padding-left: 0px;
+		padding-right: 10px;
+		background-color: #1826129e;
+		
+	}
+	.main-navigation ul ul a {
+		padding-left: 0px;
+		backdrop-filter: blur(1px);
+	}
+	.custom-logo {
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
 	.site-header {
 		position: absolute;
 		width: 100%;
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.303), rgba(0, 0, 0, 0));
+		background: transparent; 
 	}
 	.nav-menu {
 		padding-right: 20px;
 	}
+	.main-navigation {
+		width: 65%;
+	}
 	.menu-header-menu-container {
-		padding-bottom: 25px;
+		padding-bottom: 7px;
 	}
 	.menu-header-menu-container .nav-menu a {
 		padding-left: 20px;
@@ -256,12 +342,16 @@ body .menu-toggle {
 }
 // STYLES AT TABLET BREAKPOINT 
 @media (min-width: 768px) {
+	.sub-menu .menu-item a {
+		font-size: 1rem;
+		text-align: left;
+	}
 	.site-title {
 		font-size: 1.25rem;
 		font-weight: 800;
 	}
 	.nav-menu {
-		padding-right: 40px;
+		padding-right: 0px;
 	}
 	.menu-header-menu-container .nav-menu a {
 		padding-left: 25px;
@@ -273,17 +363,20 @@ body .menu-toggle {
 
 @media (min-width: $mq__desktop_small) {
 	.site-title {
-		font-size: 2.25rem;
+		font-size: 2rem;
 		font-weight: 800;
 	}
 	.menu-header-menu-container {
-		padding-right: 50px;
+		padding-right: 25px;
 	}
 	.menu-header-menu-container .nav-menu a {
-		padding-left: 50px;
+		padding-left: 40px;
 		text-transform: uppercase;
 		font-size: 1.5rem;
 		font-weight: 400;
+	}
+	.sub-menu .menu-item a {
+		font-size: 1.15rem;
 	}
 	.custom-logo {
 		margin-left: 50px;
@@ -294,6 +387,10 @@ body .menu-toggle {
 }
 
 @media (min-width: $mq__desktop_wide) {
+	.site-title {
+		font-size: 3rem;
+		font-weight: 800;
+	}
 	.custom-logo {
 		width: 100px;
 		height: 100px;
@@ -302,10 +399,16 @@ body .menu-toggle {
 		padding-right: 75px;
 	}
 	.menu-header-menu-container .nav-menu a {
-		padding-left: 75px;
+		padding-left: 25px;
 		text-transform: uppercase;
 		font-size: 1.75rem;
 		font-weight: 400;
+	}
+	.sub-menu .menu-item a {
+		font-size: 1.25rem;
+	}
+	.main-navigation {
+		width: 72%;
 	}
 }
 
