@@ -1,3 +1,12 @@
+.error404 {
+    @media (min-width: 600px) {
+        .site-header {
+            position: relative;
+            background-color: $color__bg_green;
+        }
+    }
+}
+
 .page-id-335 .site-main {
     padding: 50px;
 }

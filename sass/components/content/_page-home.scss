@@ -218,14 +218,20 @@ body .cnm_inner .cnm_btn {
 
 .page-id-68 blockquote {
     font-style: italic;
-    padding: 75px;
+    padding: 10px;
     background-color: $color__bg_offwhite;
     font-weight: 200;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .page-id-68 cite {
     color: $color__main_accent;
+    font-weight: 400;
 }
 
 @media (min-width: $mq__tablet) {
