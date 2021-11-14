@@ -1,10 +1,3 @@
-// .page-id-125 .site-main {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-// }
-
 .page-id-125 h2 {
     text-align: center;
     padding: 50px;
@@ -18,14 +11,19 @@
     margin-right: auto;
     display: block;
     color: $color__bg_offwhite;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     text-decoration: none;
     transition: .2s ease-in-out;
+    border-radius: 25px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     &:hover {
         background-color: $color__bg_offwhite;
         color: $color__text_main;
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(0.95);
     }
 }
 
@@ -60,7 +58,7 @@
     text-align: left;
 }
 
-.page-id-125 input, .page-id-125 textarea {
+.page-id-125 .wpcf7 input, .page-id-125 .wpcf7 textarea {
     width: 100%;
     border: 1px solid rgba(211, 211, 211, 0.475);
     transition: .2s ease-in-out;
@@ -70,12 +68,6 @@
         outline-style: none;
     }
 }
-
-// @media (min-width: $mq__tablet) {
-//     .page-id-125 input, .page-id-125 textarea {
-//         width: 900px;
-//     }
-// }
 
 .contact-form-container {
     background-color: #f1f2e9d6;
@@ -120,8 +112,10 @@
     padding: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     transition: .2s ease-in-out;
+    border-radius: 25px;
     &:hover {
         background-color: $color__hover_button;
+        transform: scale(1.05);
     }
     &:active {
         transform: scale(.95);
