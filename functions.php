@@ -157,6 +157,32 @@ function tonquin_vista_scripts() {
 
 	wp_enqueue_script( 'tonquin-vista-activities-tab-control', get_template_directory_uri() . '/js/activities-tab-control.js', array(), _S_VERSION, true );
 
+	if ( is_front_page() ) :
+		wp_enqueue_style(
+			'tonquin-vista-swiper',
+			'https://unpkg.com/swiper@7/swiper-bundle.min.css',
+			array(),
+			null
+		);
+
+		wp_enqueue_script(
+			'tonquin-vista-swiper-js',
+			'https://unpkg.com/swiper@7/swiper-bundle.min.js',
+			array(),
+			_S_VERSION,
+			true
+		);
+
+		wp_enqueue_script(
+			'tonquin-vista-swiper-init',
+			get_template_directory_uri() . '/js/swiper-init.js',
+			array(),
+			_S_VERSION,
+			true
+		);
+
+	endif;
+
 
 	if (is_page( 'about' ) || is_product_category('cabins')) {
 		wp_enqueue_script('map-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDrRC4kWAjqyK5toxfikbIg-ugY9WTcbco');
