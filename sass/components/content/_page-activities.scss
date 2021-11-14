@@ -116,8 +116,6 @@
 
                 li:not(.active) {
                     background-color: #182612ac;
-
-                    
                 }
 
                 li.active {
@@ -173,12 +171,12 @@
                 // Testimonial under gift card button
                 .testimonial {
                     
-                    margin: 2rem auto;
+                    margin: 3rem auto;
                     background-color: $color__bg_offwhite;
                     border-radius: 10px;
                     padding: 1rem 1.5rem;
                     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-                    max-width: 470px;
+                    max-width: 300px;
 
                     h4 {
                         display: none;
@@ -193,7 +191,9 @@
                         display: block;
                         text-align: center;
                         margin-top: 0.5rem;
-                        font-weight: 500;
+                        font-weight: 600;
+                        color: $color__main_accent;
+                        font-size: 1.1em;
                     }
                 }
 
@@ -283,7 +283,9 @@
                 // Gift card product cards
                 .gift-card-section {
 
-                    margin-top: 3rem;
+                    padding-top: 4rem;
+                    padding-bottom: 2rem;
+                    background: linear-gradient(180deg, $color__background-body, #63736837 14.5%);
 
                     h2 {
                         text-align: center;
@@ -293,6 +295,7 @@
                         max-width: 800px;
                         text-align: center;
                         margin: 1rem auto;
+                        padding: 0 1rem;
                     }
 
                     h3#gift-card-title {
@@ -323,19 +326,25 @@
             section#explore {
 
                 // Intro text
-                p {
-                    padding: 0 1rem;
+                .explore-intro {
+
+                    max-width: 800px;
+                    margin: 0 auto;
+
+                    p {
+                        padding: 0 1rem;
+                    }
                 }
 
                 // "Local Vendors" heading
                 h2 {
                     font-size: 1.8em;
                     text-align: center;
-                    margin-top: 4rem;
+                    margin-top: 5rem;
                 }
 
                 h2#tourism-heading {
-                    margin-top: 4rem;
+                    margin-top: 5rem;
                 }
 
                 // Container for each vendor
@@ -345,7 +354,7 @@
                     h3 {
                         text-align: center;
                         margin-bottom: 0;
-                        margin-top: 4rem;
+                        margin-top: 2.3rem;
                         font-size: 1.3em;
                     }
 
@@ -354,8 +363,57 @@
                         display: block;
                     }
 
-                    p {
+                    .explore-text-container {
+                        margin: 0 auto;
+                        margin-bottom: 2rem;
+                        max-width: 500px;
+                        padding: 0 1rem;
 
+                        p {
+                            text-align: center;
+                        }
+                    }
+
+                    .explore-button {
+                        text-decoration: none;
+                        color: #fff;
+                        background-color: $color__button;
+                        padding: 1rem 1.3rem;
+                        border-radius: 30px;
+                        display: block;
+                        margin: 0 auto;
+                        text-align: center;
+                        max-width: 160px;
+                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    }
+                }
+
+                .all-tourism-cards {
+                    margin-bottom: 4rem;
+                }
+
+                // Separator between each vendor and tourism company
+                .separator {
+                    position: relative;
+                    margin: 1rem 0; 
+                    height: 1px;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 5%;
+                        right: 5%;
+                        width: 85%;
+                        margin: 0 auto;
+                        height: 2px;
+                        max-width: 600px;
+                        background-image: linear-gradient(to right, transparent, $color__main_accent, transparent);
+                    }
+
+                    &:nth-of-type(3),
+                    &:nth-of-type(6) {
+                        display: none;
                     }
                 }
             }
@@ -376,44 +434,15 @@
                     font-size: 4em;
                     height: 110px;
                 }
-
-            }
-
-            .activities-text {
-
-                p {
-
-                }
             }
 
             #explore-experiences {
 
-                ul {
-
-                    li {
-
-                        a {
-
-                        }
-                    }
-                }
-
                 section#experiences {
-
-                    // Intro text in experince section
-                    div.experience-intro {
-
-
-                    }
-
-                    // Button at bottom of text
-                    a.gift-card-btn {
-
-                    }
 
                     // Testimonial card
                     .testimonial {
-
+                        max-width: 470px;
                     }
 
                     // Class for containing cards for expereinces and gift card products
@@ -422,25 +451,11 @@
                         .experience-card-content,
                         .gift-card-content {
                         
-                        
-
                             .card-top {
 
                                 h3 {
                                     font-size: 1.8em;
                                 }
-
-                                .card-image {
-
-                                }
-                            }
-
-                            p {
-                                
-                            }
-
-                            a {
-
                             }
 
                             &:nth-of-type(even) {
@@ -450,63 +465,6 @@
                             &:nth-of-type(odd) {
                                 margin-right: 38vw;
                             }
-                        }
-                    }
-
-                    // Gift card - title, card, purchase button
-                    .gift-card-section {
-
-                        // Title for section
-                        h2 {
-
-                        }
-
-                        // Title on gift card cards
-                        h3#gift-card-title {
-
-                        }
-
-                        // Purchase button
-                        .gift-card-content {
-
-                            a#gift-card-purchase {
-
-                            }
-                        }
-                    }
-                }
-
-                // Explore tab section
-                section#explore {
-
-                    // Intro text
-                    p {
-
-                    }
-
-                    // "Local Vendors" heading
-                    h2 {
-                        
-                    }
-
-                    h2#tourism-heading {
-
-                    }
-
-                    // Container for each vendor
-                    .vendor-container,
-                    .tourism-container {
-
-                        h3 {
-
-                        }
-
-                        img {
-                            
-                        }
-
-                        p {
-
                         }
                     }
                 }
@@ -541,11 +499,9 @@
             #explore-experiences {
 
                 ul {
-
                     li {
-
                         a {
-
+                            font-size: 1.5em;
                         }
                     }
                 }
@@ -561,12 +517,22 @@
 
                     // Button at bottom of text
                     a.gift-card-btn {
+                        padding: 1rem 2rem;
+                        font-size: 1.1em;
+                        max-width: 160px;
+                        transition: .3s;
 
+                        &:hover {
+                            transform: scale(1.05);
+                            box-shadow: rgba(0, 0, 0, 0.13) 0px 14px 28px, rgba(0, 0, 0, 0.10) 0px 10px 10px;
+                        }
                     }
 
                     // Testimonial card
                     .testimonial {
 
+                        max-width: 520px;
+                        padding: 1rem 2rem;
                     }
 
                     // Class for containing cards for expereinces and gift card products
@@ -584,20 +550,9 @@
                             margin: 1.5rem auto;
                             position: relative;
 
-                            .card-top {
-
-                                h3 {
-
-                                }
-
-                                .card-image {
-
-                                }
-                            }
-
                             .experience-text-container {
                                 margin-top: 2rem;
-                                margin-bottom: 5rem;
+                                margin-bottom: 5.5rem;
 
                                 p {
                                     font-size: 1.1em;
@@ -609,6 +564,15 @@
                                 bottom: 10px;
                                 left: 0;
                                 right: 0;
+                                padding: 1rem 1.3rem;
+                                max-width: 145px;
+                                font-size: 1.1em;
+                                transition: .3s;
+
+                                &:hover {
+                                    transform: scale(1.05);
+                                    box-shadow: rgba(0, 0, 0, 0.13) 0px 14px 28px, rgba(0, 0, 0, 0.10) 0px 10px 10px;
+                                }
                             }
 
                             &:nth-of-type(even) {
@@ -626,19 +590,18 @@
 
                         // Title for section
                         h2 {
-
+                            font-size: 2em;
                         }
 
-                        // Title on gift card cards
-                        h3#gift-card-title {
-
+                        p {
+                            font-size: 1.1em;
                         }
 
                         // Purchase button
                         .gift-card-content {
 
                             a#gift-card-purchase {
-
+                                height: 56px;
                             }
                         }
                     }
@@ -648,34 +611,54 @@
                 section#explore {
 
                     // Intro text
-                    p {
+                    .explore-intro {
 
+                        p {
+                            font-size: 1.1em;
+                        }
                     }
 
                     // "Local Vendors" heading
                     h2 {
-                        
-                    }
-
-                    h2#tourism-heading {
-
+                        font-size: 2.5em;
                     }
 
                     // Container for each vendor
-                    .vendor-container,
-                    .tourism-container {
+                    .all-vendor-cards,
+                    .all-tourism-cards {
+                        display: flex;
+                        justify-content: space-evenly;
+                        max-width: 1600px;
+                        margin: 0 auto;
 
-                        h3 {
+                        .vendor-container,
+                        .tourism-container {
 
+                            width: 28%;
+
+                            h3 {
+                                font-size: 1.5em;
+                            }
+
+                            .explore-button {
+                                font-size: 1.1em;
+                                max-width: 167px;
+                                transition: 0.3s;
+
+                                &:hover {
+                                    transform: scale(1.05);
+                                    box-shadow: rgba(0, 0, 0, 0.13) 0px 14px 28px, rgba(0, 0, 0, 0.10) 0px 10px 10px;
+                                }
+                            }
                         }
+                    }
 
-                        img {
-                            
-                        }
+                    .all-tourism-cards {
+                        margin-bottom: 4rem;
+                    }
 
-                        p {
-
-                        }
+                    .separator {
+                        display: none;
                     }
                 }
             }
@@ -702,20 +685,14 @@
             .activities-text {
 
                 p {
-
+                    max-width: 900px;
                 }
             }
 
             #explore-experiences {
 
                 ul {
-
-                    li {
-
-                        a {
-
-                        }
-                    }
+                    max-width: 1100px;
                 }
 
                 section#experiences {
@@ -723,71 +700,29 @@
                     // Intro text in experince section
                     div.experience-intro {
 
-
+                        max-width: 960px;
                     }
 
-                    // Button at bottom of text
-                    a.gift-card-btn {
-
-                    }
-
-                    // Testimonial card
-                    .testimonial {
-
-                    }
-
-                    // Class for containing cards for expereinces and gift card products
+                    // Class for containing cards for experiences and gift card products
                     .card-container {
 
-                        max-width: 1400px;
+                        max-width: 1500px;
 
                         .experience-card-content,
                         .gift-card-content {
                         
                             max-width: 600px;
+                            margin: 2.5rem auto;
 
                             .card-top {
 
                                 h3 {
                                     font-size: 2.1em;
                                 }
-
-                                .card-image {
-
-                                }
                             }
 
                             .experience-text-container {
                                 margin-bottom: 6rem;
-
-                                p {
-                                    
-                                }
-                            }
-
-                            a {
-
-                            }
-                        }
-                    }
-
-                    // Gift card - title, card, purchase button
-                    .gift-card-section {
-
-                        // Title for section
-                        h2 {
-
-                        }
-
-                        // Title on gift card cards
-                        h3#gift-card-title {
-
-                        }
-
-                        // Purchase button
-                        .gift-card-content {
-
-                            a#gift-card-purchase {
 
                             }
                         }
@@ -798,34 +733,8 @@
                 section#explore {
 
                     // Intro text
-                    p {
-
-                    }
-
-                    // "Local Vendors" heading
-                    h2 {
-                        
-                    }
-
-                    h2#tourism-heading {
-
-                    }
-
-                    // Container for each vendor
-                    .vendor-container,
-                    .tourism-container {
-
-                        h3 {
-
-                        }
-
-                        img {
-                            
-                        }
-
-                        p {
-
-                        }
+                    .explore-intro {
+                        max-width: 960px;
                     }
                 }
             }
