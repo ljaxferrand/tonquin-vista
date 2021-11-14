@@ -59,13 +59,6 @@ function add_map() {
     }
 }
 
-
-
-
-
-
-
-
 /**
  * Remove product count
  */
@@ -88,8 +81,22 @@ function woocommerce_catalog_orderby( $args ) {
     }
     return $args;
 }
-
 add_action( 'woocommerce_after_shop_loop_item_title', 'custom_field_display_below_title', 2 );
+
+/**
+ * Remove breadcrumbs on Cabin archive page
+ */
+add_filter( 'woocommerce_before_main_content', 'remove_breadcrumbs');
+function remove_breadcrumbs() {
+    if( is_product_category( 'cabins' )) {
+        remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+    }
+}
+
+
+/**
+ * Get ACFS for Cabin archive page
+ */
 function custom_field_display_below_title(){
     if( is_product_category( 'cabins' ) ) {
         global $product;

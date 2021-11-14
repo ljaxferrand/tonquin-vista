@@ -11,3 +11,76 @@
     max-width: 125px;
     box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
+
+
+.archive.tax-product_cat.term-cabins{
+
+    h1 {
+        position: absolute;
+        top: 34%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white; 
+        text-transform: uppercase;
+    }
+
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 80rem;
+        
+
+        img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        li {
+            background-color: $color__bg_offwhite;
+            box-shadow: rgb(50 50 93 / 15%) 0px 13px 27px -5px, rgb(0 0 0 / 30%) 0px 8px 16px -8px;
+            padding: 1rem 2rem 4rem 2rem;
+            margin: 1rem;
+            width: 25rem;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        p {
+            padding-left: 2rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: $color__text_main;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 0.25rem;
+            left: 0;
+            right: 0;
+            color: $color__button_text;
+    
+        }
+    }
+
+    .map-container {
+        margin: 0 auto;
+        max-width: 50rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media (min-width: $mq__tablet) {
+    .archive.tax-product_cat.term-cabins h1 {
+       font-size: 3.5rem;
+   }
+}
+
+.marker {
+    max-height: 300px;
+}
