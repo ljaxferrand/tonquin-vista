@@ -10,6 +10,11 @@
 //     }
 // }
 
+//
+.single-product .slick-track img {
+    margin-left: auto;
+    margin-right: auto;
+} 
 //  Single product page navigation in desktop
 .single-product {
     @media (min-width: 600px) {
