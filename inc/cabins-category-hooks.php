@@ -41,11 +41,13 @@ function add_map() {
 
             $location = get_field('single_cabin_location');
             $title = get_the_title(); // Get the title
-
                 if( !empty($location) ) {
                 ?>
                     <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
                                 <h4><a href="<?php the_permalink(); ?>" rel="bookmark"> <?php the_title(); ?></a></h4>
+                                <?php
+                                    echo woocommerce_get_product_thumbnail('woocommerce_thumbnail');
+                                ?>
                                 <p class="address"><?php echo $location['address']; ?></p>
                     </div>
                 <?php
@@ -54,5 +56,62 @@ function add_map() {
 
         echo '</div></div></div>';
         wp_reset_postdata();
+    }
+}
+
+/**
+ * Remove product count
+ */
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+
+/**
+ * Remove product sorting dropdown
+ */
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+/**
+ * Cabin order on archive 
+ */
+add_filter('woocommerce_get_catalog_ordering_args', 'woocommerce_catalog_orderby');
+function woocommerce_catalog_orderby( $args ) {
+    if( is_product_category( 'cabins' ) ) { 
+        $args['orderby']  = 'title';
+        $args['order']    = 'ASC';
+    }
+    return $args;
+}
+add_action( 'woocommerce_after_shop_loop_item_title', 'custom_field_display_below_title', 2 );
+
+/**
+ * Remove breadcrumbs on Cabin archive page
+ */
+add_filter( 'woocommerce_before_main_content', 'remove_breadcrumbs');
+function remove_breadcrumbs() {
+    if( is_product_category( 'cabins' )) {
+        remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+    }
+}
+
+
+/**
+ * Get ACFS for Cabin archive page
+ */
+function custom_field_display_below_title(){
+    if( is_product_category( 'cabins' ) ) {
+        global $product;
+
+        // Display ACF text
+        if( $beds = get_field( 'number_of_bedrooms', $product->get_id() ) ) {
+            echo '<p>Bedrooms: ' . $beds . '</p>';
+        }
+
+        if( $baths = get_field( 'number_of_bathrooms', $product->get_id() ) ) {
+            echo '<p>Bathrooms: ' . $baths . '</p>';
+        }
+
+        if( $sleeps = get_field( 'sleeps_max', $product->get_id() ) ) {
+            echo '<p>Sleeps: ' . $sleeps . '</p>';
+        }
     }
 }

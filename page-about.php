@@ -56,7 +56,7 @@ get_header();
 
 					<ul id="nav-tab" class="nav-tab-ul">
 						<li class="active"><a href="#gettinghere">Getting Here</a></li>
-						<li><a href="#contactinfo">Contact Info and Hours</a></li>
+						<li><a href="#contactinfo">Hours & Address</a></li>
 						<li><a href="#localweather">Local Weather</a></li>
 					</ul>
 				
@@ -75,10 +75,12 @@ get_header();
 							if( $location ): ?>
 			
 								<div class="acf-map" data-zoom="16">
-									<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+									<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+							
+									<p class="address"><?php echo $location['address']; ?></p>
+									</div>
 								</div>
 
-								<p class="address"><?php echo $location['address']; ?></p>
 								<?php
 							endif; ?>
 						</section>
@@ -94,22 +96,24 @@ get_header();
 									$phone = get_sub_field('phone_number'); ?>
 		
 									<div id="contact-address">
-											<p><?php echo $addressline1 ?></p>
-											<p><?php echo $addressline2 ?></p>
-											<p><?php echo $phone ?></p>
+										<p><?php echo $addressline1 ?><br/>
+										<?php echo $addressline2 ?><br/>
+										<?php echo $phone ?></p>
+										<?php
+											if ( get_field('hours') ) :
+										?>
+										<p><?php the_field( 'hours' ); ?> </p> 
+										<?php 
+										endif; ?>
 									</div>
 								<?php endwhile; ?>
 							<?php endif;
 
-							if ( get_field('hours') ) :
-								?>
-								<p><?php the_field( 'hours' ); ?> </p> 
-								<?php 
-							endif; 
+						
 		
 							if ( get_field('contact_page_link') ) :
 								?>
-								<a href="<?php the_field( 'contact_page_link' ); ?>">Visit our Contact Page</a>
+								<a class="button" href="<?php the_field( 'contact_page_link' ); ?>">Visit our Contact Page</a>
 								<?php 
 							endif; ?>
 						</section>
