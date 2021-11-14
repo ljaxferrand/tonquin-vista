@@ -17,9 +17,59 @@ get_header();
             ?>
 
             <section id="slider-container">
-                <?php
-                echo do_shortcode('[smartslider3 slider="2"]');
-                ?>
+                <!-- Slider main container -->
+                <div class="swiper">
+                <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <div class="slide-image">
+                                <?php
+                                echo wp_get_attachment_image(get_field('slider_image_1'), 'full');
+                                ?>
+                            </div>
+
+                            <div class="slide-text">
+                                <h2><?php echo esc_html(get_field('slider_heading_1')); ?></h2>
+                                <p><?php echo esc_html(get_field('slider_text_1')); ?></p>
+                                <a href="<?php echo esc_url(get_field('slider_btn_link_1')['url']); ?>"><?php echo esc_html(get_field('slider_btn_text_1')); ?></a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="slide-image">
+                                <?php
+                                echo wp_get_attachment_image(get_field('slider_image_2'), 'full');
+                                ?>
+                            </div>
+
+                            <div class="slide-text">
+                                <h2><?php echo esc_html(get_field('slider_heading_2')); ?></h2>
+                                <p><?php echo esc_html(get_field('slider_text_2')); ?></p>
+                                <a href="<?php echo esc_url(get_field('slider_btn_link_2')['url']); ?>"><?php echo esc_html(get_field('slider_btn_text_2')); ?></a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="slide-image">
+                                <?php
+                                echo wp_get_attachment_image(get_field('slider_image_3'), 'full');
+                                ?>
+                            </div>
+
+                            <div class="slide-text">
+                                <h2><?php echo esc_html(get_field('slider_heading_3')); ?></h2>
+                                <p><?php echo esc_html(get_field('slider_text_3')); ?></p>
+                                <a href="<?php echo esc_url(get_field('slider_btn_link_3')['url']); ?>"><?php echo esc_html(get_field('slider_btn_text_3')); ?></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                </div>
             </section>
 
             <section id="tonquin-logo">

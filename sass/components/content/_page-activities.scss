@@ -1,3 +1,70 @@
+//Styles for Home Page slider - to be moved later 
+.home {
+    .site {
+
+        .swiper {
+            height: 100vh;
+            width: 100vw;
+
+            .swiper-wrapper {
+
+                .swiper-slide {
+                    height: 100vh;
+                    width: 100vw;
+                    position: relative;
+
+                    .slide-image {
+
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            vertical-align: top;
+                            max-height: 100vh;
+                        }
+
+                        &:after {
+                            content: '\A';
+                            position: absolute;
+                            width: 100%; height:100%;
+                            top:0; left:0;
+                            background: #0000001D;
+                        }
+                    }
+
+                    .slide-text {
+
+                        position: absolute;
+                        top: 5rem;
+                        left: 0;
+                        right: 0;
+
+                        h2 {
+                            z-index: 10;
+                            color: #fff;
+                        }
+    
+                        p {
+                            z-index: 10;
+                            color: #fff;
+                        }
+    
+                        a {
+                            z-index: 10;
+                            color: #fff;
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
 // Styles for activities page - Mobile 
 .page-id-50 {
 

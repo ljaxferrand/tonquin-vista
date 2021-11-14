@@ -200,7 +200,7 @@ get_header();
                                                             ?>
                                                         </a>
 
-                                                        <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>" class="explore-button"><?php echo esc_html($explore_group['vendors_btn_text']) ?></a>
+                                                        <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>" class="explore-button" target='_blank'><?php echo esc_html($explore_group['vendors_btn_text']) ?></a>
 
                                                         <div class="explore-text-container">
                                                             <p> <?php the_sub_field('vendor_description') ?> </p>
@@ -235,7 +235,7 @@ get_header();
                                                             ?>
                                                         </a>
 
-                                                        <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>" class="explore-button"><?php echo esc_html($explore_group['tourism_btn_text']) ?></a>
+                                                        <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>" class="explore-button" target='_blank'><?php echo esc_html($explore_group['tourism_btn_text']) ?></a>
 
                                                         <div class="explore-text-container">
                                                             <p> <?php esc_html( the_sub_field('tourism_description') ) ?> </p>
