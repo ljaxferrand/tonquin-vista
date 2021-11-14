@@ -175,65 +175,81 @@ get_header();
                             
                             if ( $explore_group ) :
                                 ?>
-                                <p> <?php echo acf_esc_html( $explore_group['explore_intro'] ); ?> </p>
+                                <div class="explore-intro">
+                                    <p> <?php echo acf_esc_html( $explore_group['explore_intro'] ); ?> </p>
+                                </div>
 
                                 <h2> <?php echo esc_html( $explore_group['vendors_title'] ); ?> </h2>
                                 
-                                <?php
-                                //Repeater for local vendors 
-                                if ( have_rows( 'explore_group' ) ) :
-                                    while ( have_rows( 'explore_group' ) ) :
-                                        the_row();
-                                        if ( have_rows( 'local_vendors' ) ) :
-                                            while ( have_rows( 'local_vendors' ) ) : 
-                                                the_row();
-                                                ?>
-                                                <article class="vendor-container">
-                                                    <h3> <?php the_sub_field('vendor_name'); ?> </h3>
+                                <div class="all-vendor-cards">
+                                    <?php
+                                    //Repeater for local vendors 
+                                    if ( have_rows( 'explore_group' ) ) :
+                                        while ( have_rows( 'explore_group' ) ) :
+                                            the_row();
+                                            if ( have_rows( 'local_vendors' ) ) :
+                                                while ( have_rows( 'local_vendors' ) ) : 
+                                                    the_row();
+                                                    ?>
+                                                    <article class="vendor-container">
+                                                        <h3> <?php the_sub_field('vendor_name'); ?> </h3>
 
-                                                    <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>">
-                                                        <?php
-                                                        echo wp_get_attachment_image( get_sub_field( 'vendor_logo' ), 'medium');
-                                                        ?>
-                                                    </a>
+                                                        <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>" target='_blank'>
+                                                            <?php
+                                                            echo wp_get_attachment_image( get_sub_field( 'vendor_logo' ), 'medium');
+                                                            ?>
+                                                        </a>
 
-                                                    <p> <?php the_sub_field('vendor_description') ?> </p>
-                                                </article>
-                                                <?php
-                                            endwhile;
-                                        endif;
-                                    endwhile;
-                                endif;  
-                                ?>
+                                                        <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>" class="explore-button"><?php echo esc_html($explore_group['vendors_btn_text']) ?></a>
+
+                                                        <div class="explore-text-container">
+                                                            <p> <?php the_sub_field('vendor_description') ?> </p>
+                                                        </div>
+                                                    </article>
+                                                    <div class="separator"></div>
+                                                    <?php
+                                                endwhile;
+                                            endif;
+                                        endwhile;
+                                    endif;  
+                                    ?>
+                                </div>
 
                                 <h2 id='tourism-heading'><?php echo esc_html( $explore_group['tourism_title'] ); ?></h2>
+                                <div class="all-tourism-cards">
+                                    <?php
+                                    //Repeater for Tourism Group
+                                    if ( have_rows( 'explore_group' ) ) :
+                                        while ( have_rows( 'explore_group' ) ) :
+                                            the_row();
+                                            if ( have_rows( 'tourism' ) ) :
+                                                while ( have_rows( 'tourism' ) ) : 
+                                                    the_row();
+                                                    ?>
+                                                    <article class="tourism-container">
+                                                        <h3> <?php esc_html( the_sub_field( 'tourism_name' ) ); ?> </h3>
 
-                                 <?php
-                                //Repeater for Tourism Group
-                                if ( have_rows( 'explore_group' ) ) :
-                                    while ( have_rows( 'explore_group' ) ) :
-                                        the_row();
-                                        if ( have_rows( 'tourism' ) ) :
-                                            while ( have_rows( 'tourism' ) ) : 
-                                                the_row();
-                                                ?>
-                                                <article class="tourism-container">
-                                                    <h3> <?php esc_html( the_sub_field( 'tourism_name' ) ); ?> </h3>
+                                                        <a href="<?php echo esc_url( get_sub_field('tourism_url')); ?>" target='_blank'>
+                                                            <?php
+                                                            echo wp_get_attachment_image( get_sub_field( 'tourism_logo' ), 'medium');
+                                                            ?>
+                                                        </a>
 
-                                                    <a href="<?php echo esc_url( get_sub_field('tourism_url')); ?>">
-                                                        <?php
-                                                        echo wp_get_attachment_image( get_sub_field( 'tourism_logo' ), 'medium');
-                                                        ?>
-                                                    </a>
+                                                        <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>" class="explore-button"><?php echo esc_html($explore_group['tourism_btn_text']) ?></a>
 
-                                                    <p> <?php esc_html( the_sub_field('tourism_description') ) ?> </p>
-                                                </article>
-                                                <?php
-                                            endwhile;
-                                        endif;
-                                    endwhile;
-                                endif; 
-
+                                                        <div class="explore-text-container">
+                                                            <p> <?php esc_html( the_sub_field('tourism_description') ) ?> </p>
+                                                        </div>
+                                                    </article>
+                                                    <div class="separator"></div>
+                                                    <?php
+                                                endwhile;
+                                            endif;
+                                        endwhile;
+                                    endif; 
+                                ?>
+                                </div>
+                                <?php
                             endif;
                             ?>
                         </section>
