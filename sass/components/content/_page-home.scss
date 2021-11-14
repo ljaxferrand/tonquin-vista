@@ -52,9 +52,11 @@ body .cnm_inner .cnm_btn {
     text-align: center;
     width: 175px;
     transition: .2s ease-in;
-    // &:hover {
-    //     background-color: $color__bg_offwhite;
-    // }
+    &:hover {
+        background-color: $color__bg_offwhite;
+        color: $color__text-main;
+        transform: scale(1.05);
+    }
     &:active {
         transform: scale(.95);
     }

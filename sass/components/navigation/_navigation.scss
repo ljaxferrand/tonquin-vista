@@ -190,31 +190,35 @@ margin-right: 25px;
 
 .site-title {
 	font-family: "megrim";
-	font-size: 1.3rem;
+	font-size: 1.15rem;
 	font-weight: 800;
 	text-transform: lowercase;
+	border-bottom: solid 2.5px $color__main_accent;
 	& a {
 		text-decoration: none;
 		color: $color__bg_offwhite;
+		padding-left: 0px;
 	}
 }
 
 body .menu-toggle {
 	background-color: transparent;
+	fill: white;
 	border: none;
 	padding-right: 25px;
 	padding-left: 0;
 } 
 
+
+
 .main-navigation {
-	width: 25%;
+	width: 30%;
 }
 @media (min-width: 350px){
 	.main-navigation {
 		width: 36%;
 	}
 	.site-title {
-		padding-left: 15px;
 		font-size: 1.5;
 	}
 }
