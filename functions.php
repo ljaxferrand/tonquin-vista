@@ -176,7 +176,9 @@ function tonquin_vista_scripts() {
 		wp_enqueue_script(
 			'tonquin-vista-swiper-init',
 			get_template_directory_uri() . '/js/swiper-init.js',
-			array(),
+			array(
+				'tonquin-vista-swiper-js',
+			),
 			_S_VERSION,
 			true
 		);
