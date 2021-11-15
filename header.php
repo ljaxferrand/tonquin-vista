@@ -22,6 +22,11 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<div class="mobile-menu-bg" id="mobile-menu-bg">
+<div class="toggle-container">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"></button>
+</div>
+</div>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'tonquin-vista' ); ?></a>
 
