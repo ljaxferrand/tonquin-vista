@@ -1,10 +1,12 @@
 const swiper = new Swiper('.swiper', {
 
+  direction: 'horizontal',
+  loop: true,
   effect: "fade",
-  fadeEffect: { crossFade: true },
-  speed: 1500,
+  fadeEffect: { crossFade: false },
+  speed: 1000,
   slidesPerView: 1,
-  autoplay: { delay: 5000 },
+  autoplay: { delay: 7000 },
   
     // Navigation arrows
     navigation: {
