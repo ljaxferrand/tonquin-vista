@@ -2,6 +2,12 @@
 --------------------------------------------- */
 @import "navigation/navigation";
 
+
+/* Hero Image Styles
+--------------------------------------------- */
+
+@import "content/hero-images";
+
 /* Posts and pages
 --------------------------------------------- */
 @import "content/posts-and-pages";
@@ -12,11 +18,13 @@
 @import "content/page-archive-cabin";
 @import "content/page-contact";
 @import "content/page-faq";
+@import "content/home-slider";
 @import "content/page-home";
 @import "content/page-policies";
 @import "content/page-single-cabins";
 @import "content/product-styles";
 @import "content/page-login";
+@import "content/page-shop-checkout";
 
 
 /* Comments

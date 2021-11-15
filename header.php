@@ -32,7 +32,7 @@
 			if ( is_front_page() && is_home() ) :
 				?>
 				<div class="site-name-container">
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-title "><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				</div>
 				<?php
 			else :
@@ -65,6 +65,14 @@
 					'menu_id'        => 'primary-menu',
 				)
 			);
+			// THIS CODE WILL ADD A WOOCOMMERCE CART TO THE HEADER WITH $VALUE | ITEMS IN CART
+
+			// if ( function_exists( 'tonquin_vista_woocommerce_header_cart' ) ) {
+			// 	tonquin_vista_woocommerce_header_cart();
+			// }
 			?>
 		</nav><!-- #site-navigation -->
+			<?php
+				
+			?>
 	</header><!-- #masthead -->

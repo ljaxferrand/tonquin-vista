@@ -29,10 +29,10 @@ get_header();
                                 ?>
                             </div>
 
-                            <div class="slide-text">
-                                <h2><?php echo esc_html(get_field('slider_heading_1')); ?></h2>
-                                <p><?php echo esc_html(get_field('slider_text_1')); ?></p>
-                                <a href="<?php echo esc_url(get_field('slider_btn_link_1')['url']); ?>"><?php echo esc_html(get_field('slider_btn_text_1')); ?></a>
+                            <div class="slide-text-container">
+                                <h2 class='slide-heading'><?php echo esc_html(get_field('slider_heading_1')); ?></h2>
+                                <p class='slide-text'><?php echo esc_html(get_field('slider_text_1')); ?></p>
+                                <a href="<?php echo esc_url(get_field('slider_btn_link_1')['url']); ?>" class='slide-button'><?php echo esc_html(get_field('slider_btn_text_1')); ?></a>
                             </div>
                         </div>
 
@@ -43,10 +43,10 @@ get_header();
                                 ?>
                             </div>
 
-                            <div class="slide-text">
-                                <h2><?php echo esc_html(get_field('slider_heading_2')); ?></h2>
-                                <p><?php echo esc_html(get_field('slider_text_2')); ?></p>
-                                <a href="<?php echo esc_url(get_field('slider_btn_link_2')['url']); ?>"><?php echo esc_html(get_field('slider_btn_text_2')); ?></a>
+                            <div class="slide-text-container">
+                                <h2 class='slide-heading'><?php echo esc_html(get_field('slider_heading_2')); ?></h2>
+                                <p class='slide-text'><?php echo esc_html(get_field('slider_text_2')); ?></p>
+                                <a href="<?php echo esc_url(get_field('slider_btn_link_2')['url']); ?>" class='slide-button'><?php echo esc_html(get_field('slider_btn_text_2')); ?></a>
                             </div>
                         </div>
 
@@ -57,10 +57,10 @@ get_header();
                                 ?>
                             </div>
 
-                            <div class="slide-text">
-                                <h2><?php echo esc_html(get_field('slider_heading_3')); ?></h2>
-                                <p><?php echo esc_html(get_field('slider_text_3')); ?></p>
-                                <a href="<?php echo esc_url(get_field('slider_btn_link_3')['url']); ?>"><?php echo esc_html(get_field('slider_btn_text_3')); ?></a>
+                            <div class="slide-text-container">
+                                <h2 class='slide-heading'><?php echo esc_html(get_field('slider_heading_3')); ?></h2>
+                                <p class='slide-text'><?php echo esc_html(get_field('slider_text_3')); ?></p>
+                                <a href="<?php echo esc_url(get_field('slider_btn_link_3')['url']); ?>" class='slide-button'><?php echo esc_html(get_field('slider_btn_text_3')); ?></a>
                             </div>
                         </div>
                     </div>
