@@ -26,17 +26,7 @@
 			</nav>
 		</div>
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'tonquin-vista' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'tonquin-vista' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'tonquin-vista' ), 'tonquin-vista', '<a href="https://tonquinvista.bcitwebdeveloper.ca/">FWD28</a>' );
-				?>
+			<span class="sep">&copy; 2021 Tonquin Vista Cabins | All rights reserved</span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
