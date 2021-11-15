@@ -1,3 +1,17 @@
+.page-id-170 {
+    @media (min-width: 600px) {
+        .site-header {
+            position: relative;
+            background-color: $color__bg_green;
+        }
+    }
+}
+
+.page-id-170 .post-170 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
 .page-id-170 h1 {
     text-align: center;
 }
