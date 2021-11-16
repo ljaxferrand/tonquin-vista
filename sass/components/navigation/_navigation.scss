@@ -20,8 +20,6 @@
 	display: block;
 	width: 100%;
 
-
-
 	ul {
 		display: none;
 		list-style: none;
@@ -56,14 +54,6 @@
 			a {
 				width: 200px;
 			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
 		}
 
 		li:hover > ul,
@@ -78,22 +68,11 @@
 		position: relative;
 		padding: 2rem 0;
 		width: 100%;
-		
-
-		&:hover > a,
-		&.focus > a {
-		}
 	}
 
 	a {
 		display: block;
 		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
 	}
 }
 
@@ -101,40 +80,6 @@
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-
-	// .mobile-menu-bg {
-	// 	display: none;
-
-		
-	// }
-
-	// .mobile-menu-bg.show {
-	// 	display: none;
-	// }
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
-
-	.main-navigation ul li:hover > ul, .main-navigation ul li.focus > ul {
-		position: absolute;
-		z-index: 20;
-	}
-
-	.main-navigation li {
-		width: unset;
-		a {
-			text-align: left;
-		}
-		
-	}
 }
 
 .comment-navigation,
@@ -159,7 +104,7 @@
 	}
 
 }
-// Tab Navigation on Activities Page
+// Tab Navigation on Single Cabin Page
 // ----------------------------------------------------------------------------------------------
 #amenities-rates{
 	
@@ -258,6 +203,12 @@ body .menu-toggle {
 	border: none;
 	padding-right: 25px;
 	padding-left: 0;
+	padding-bottom: 9px;
+
+	svg {
+		width: 30px;
+		height: 30px;
+	}
 } 
 
 
@@ -270,7 +221,7 @@ body .menu-toggle {
 		width: 36%;
 	}
 	.site-title {
-		font-size: 1.5;
+		font-size: 1.5em;
 	}
 }
 
@@ -278,17 +229,13 @@ body .menu-toggle {
 	.main-navigation {
 		width: 40%;
 	}
-	.site-title {
-		font-size: 1.4rem;
-	}
+	
 }
 @media (min-width: 475px){
 	.main-navigation {
 		width: 50%;
 	}
-	.site-title {
-		font-size: 1.5rem;
-	}
+	
 }
 
 @media screen and (max-width: $mq__tablet) {
@@ -379,11 +326,39 @@ body .menu-toggle {
 }
 
 
-// STYLES AT FIRST WORDPRESS BREAKPOINT
-@media (min-width: 600px) {
+// STYLES AT FIRST TABLET BREAKPOINT
+@media screen and (min-width: $mq__tablet) {
+
+	.main-navigation ul {
+		display: flex;
+	}
+
+	.main-navigation ul li:hover > ul, .main-navigation ul li.focus > ul {
+		position: absolute;
+		z-index: 20;
+	}
+
+	.main-navigation li {
+
+		width: unset;
+		a {
+			text-align: left;
+		}
+	}
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.site-branding {
+		padding-top: 20px;
+	}
+
+
 	.shop-icon a svg {
 		fill: #fff;
-		width: 30px;
+		width: 27px;
+		margin-right: 20px;
 		height: auto;
 		background: $color__main_accent;
 		border-radius: 15px;
@@ -395,6 +370,7 @@ body .menu-toggle {
 			padding: 5px;
 		}
 	}
+
 	.main-navigation.toggled #primary-menu {
 		position: relative;
 		min-height: unset;
@@ -402,20 +378,19 @@ body .menu-toggle {
 		flex-direction: row;
 		width: 100%;
 		padding-top: 0;
-	
 		display: flex;
 		border-right: none;
-	justify-content: flex-start;
-    align-items: center;
+		justify-content: flex-start;
+    	align-items: center;
 
-	li a {
-		color: white;
-		text-transform: uppercase;
-		font-size: calc(0.85rem + .5vw);
-		transition: 0.2s ease-in-out;
-		font-weight: 400;
-		width: 100%;
-	}
+		li a {
+			color: white;
+			text-transform: uppercase;
+			font-size: calc(0.85rem + .5vw);
+			transition: 0.2s ease-in-out;
+			font-weight: 400;
+			width: 100%;
+		}
 	}
 
 	.main-navigation ul ul {
@@ -430,13 +405,7 @@ body .menu-toggle {
 		color: $color__text_main;
 	   content: none;
 	}
-	.sub-menu .menu-item a {
-		font-size: 1rem;
-	}
-	.site-title {
-		border-bottom: solid 5px $color__main_accent;
-		padding-left: 0;
-	}
+
 	.main-navigation ul ul {
 		padding-left: 0px;
 		padding-right: 10px;
@@ -449,59 +418,64 @@ body .menu-toggle {
 	}
 	.custom-logo {
 		margin-right: 10px;
-		margin-bottom: 10px;
+		margin-bottom: -2px;
 	}
 	.site-header {
 		position: absolute;
 		width: 100%;
 		background: transparent; 
 	}
-	.nav-menu {
-		padding-right: 20px;
-	}
+
 	.main-navigation {
 		width: 65%;
 	}
-	.menu-header-menu-container .nav-menu a {
-		padding-left: 20px;
-		color: white;
-		text-transform: uppercase;
-		font-size: .85rem;
-		transition: .2s ease-in-out;
-		&:hover {
-			color: $color__main_accent;
-		}
-	}
+
 	.site-title a {
 		color: white;
 	}
-}
-// STYLES AT TABLET BREAKPOINT 
-@media (min-width: 768px) {
+
 	.sub-menu .menu-item a {
 		font-size: 1rem;
 		text-align: left;
 	}
 	.site-title {
-		font-size: 1.25rem;
+		font-size: 1.85rem;
 		font-weight: 800;
+		white-space: nowrap;
 	}
 	.nav-menu {
 		padding-right: 0px;
 	}
 	.menu-header-menu-container .nav-menu a {
+		color: white;
 		padding-left: 15px;
 		text-transform: uppercase;
-		font-size: 1.1rem;
+		font-size: 1.3rem;
 		font-weight: 400;
+		padding-top: 20px;
+
+		&:active {
+			color: $color__main_accent;
+		}
 	}
 }
 
+
 @media (min-width: $mq__desktop_small) {
+
+	.site-branding {
+		padding-top: 10px;
+	}
+
 	.site-title {
 		font-size: 2rem;
 		font-weight: 800;
 	}
+
+	.shop-icon a svg {
+		width: 40px;
+	}
+
 	.menu-header-menu-container {
 		padding-right: 25px;
 	}
@@ -510,24 +484,37 @@ body .menu-toggle {
 		text-transform: uppercase;
 		font-size: 1.5rem;
 		font-weight: 400;
+		padding-top: 10px;
+		transition: 0.3s;
+
+		&:hover {
+			color: $color__main_accent;
+			transform: scale(1.05);
+		}
 	}
 	.sub-menu .menu-item a {
 		font-size: 1.15rem;
 	}
 	.custom-logo {
-		margin-left: 50px;
-		width: 90px;
-		height: 90px;
-		margin-bottom: 10px;
+		margin-left: 10px;
+		width: 80px;
+		height: 80px;
+		margin-bottom: -2px;
 	}
 }
 
 @media (min-width: $mq__desktop_wide) {
+
+	.site-branding {
+		padding-top: 0px;
+	}
+
 	.site-title {
 		font-size: 3rem;
 		font-weight: 800;
 	}
 	.custom-logo {
+		margin-left: 50px;
 		width: 100px;
 		height: 100px;
 	}
@@ -535,10 +522,11 @@ body .menu-toggle {
 		padding-right: 75px;
 	}
 	.menu-header-menu-container .nav-menu a {
-		padding-left: 25px;
+		padding-left: 40px;
 		text-transform: uppercase;
 		font-size: 1.75rem;
 		font-weight: 400;
+		padding-top: 0px;
 	}
 	.sub-menu .menu-item a {
 		font-size: 1.25rem;
