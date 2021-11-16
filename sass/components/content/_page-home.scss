@@ -26,6 +26,8 @@ body .cnm_inner .cnm_btn {
 #home-intro {
     padding: 25px;
     text-align: center;
+    font-weight: 200;
+    text-align: left;
 }
 
 @media (min-width: $mq__tablet) {
@@ -38,6 +40,7 @@ body .cnm_inner .cnm_btn {
     #home-intro {
         padding-left: 80px;
         padding-right: 80px;
+        font-size: 1.5rem;
     }
 }
 
