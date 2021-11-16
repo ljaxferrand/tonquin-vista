@@ -2,52 +2,21 @@
     text-align: center;
     padding: 50px;
     font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0 auto;
+    max-width: 45rem;
 }
 
 // Link to about page
 .page-id-125 .site-main a {
-    background-color: $color__main_accent;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    color: $color__bg_offwhite;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    transition: .2s ease-in-out;
-    border-radius: 25px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    &:hover {
-        color: $color__bg_offwhite;
-        transform: scale(1.05);
-    }
-    &:active {
-        transform: scale(0.95);
-    }
-}
 
-.contact-hero-image {
-    position: relative;
-}
+   @include button-mobile;
+   max-width: 200px;
 
-.page-id-125 h1 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white; 
-    text-transform: uppercase;
-}
-
-@media (min-width: $mq__tablet) {
-   .page-id-125 h1 {
-       font-size: 3.5rem;
+   @media screen and (min-width: $mq__desktop_small) {
+       @include button-desktop;
+       max-width: 210px;
    }
-}
-
-.page-id-125 h2 {
-    font-weight: 400;
 }
 
 .page-id-125 #contact-address {
@@ -99,7 +68,6 @@
         padding-right: 200px;
     }
 }
-
 
 // form submit button
 .wpcf7-form-control.has-spinner.wpcf7-submit {
