@@ -303,9 +303,13 @@ function testimonials() {
 add_action('woocommerce_single_product_summary', 'check_availability_btn', 5);
 
 function check_availability_btn() {
+	if (has_term('Cabins', 'product_cat') || has_term('Experiences', 'product_cat')) {
 
-	echo "<a class='button' href='#wc-bookings-booking-form'>Check Availability</a>";
-
+		echo "<a class='button' href='#wc-bookings-booking-form'>Check Availability</a>";
+		
+	} else {
+		return;
+	}
 		
 };
 
@@ -337,5 +341,9 @@ function see_all_cabins_experiences_btn() {
 };
 
 
-
+// removes all woocommerce breadcrumbs
+add_action( 'init', 'woo_remove_wc_breadcrumbs' );
+function woo_remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
 

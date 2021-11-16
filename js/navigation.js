@@ -6,7 +6,7 @@
  */
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
-	const siteNavBg = document.getElementById('mobile-menu-bg');
+	// const siteNavBg = document.getElementById('mobile-menu-bg');
 
 	// Return early if the navigation don't exist.
 	if ( ! siteNavigation ) {
@@ -14,7 +14,7 @@
 	}
 
 	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
-	const buttonBG = siteNavBg.getElementsByTagName('button')[0];
+	// const buttonBG = siteNavBg.getElementsByTagName('button')[0];
 
 	// Return early if the button don't exist.
 	if ( 'undefined' === typeof button ) {
@@ -36,7 +36,7 @@
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
-		siteNavBg.classList.toggle('show');
+		// siteNavBg.classList.toggle('show');
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -53,7 +53,7 @@
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
-			siteNavBg.classList.remove('show');
+			// siteNavBg.classList.remove('show');
 			
 			
 			button.setAttribute( 'aria-expanded', 'false' );
