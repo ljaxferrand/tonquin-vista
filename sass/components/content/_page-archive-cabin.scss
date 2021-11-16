@@ -1,17 +1,3 @@
-.button.add_to_cart_button {
-   @include button-mobile;
-   max-width: 150px;
-
-   @media screen and (min-width: $mq__desktop_small) {
-        @include button-desktop;
-        max-width: 165px;
-    }
-}
-
-.woocommerce-products-header__title.page-title {
-   display: none;
-}
-
 .archive.tax-product_cat.term-cabins{
 
     .products {
@@ -47,11 +33,19 @@
             color: $color__text_main;
         }
 
-        .button {
+        .button.add_to_cart_button {
             position: absolute;
             bottom: 1rem;
             left: 0;
             right: 0;    
+
+            @include button-mobile;
+            max-width: 150px;
+         
+            @media screen and (min-width: $mq__desktop_small) {
+                @include button-desktop;
+                max-width: 165px;
+            }
         }
     }
 
@@ -61,6 +55,10 @@
         padding: 1rem 2rem;
     }
 }
+
+.woocommerce-products-header__title.page-title {
+    display: none;
+ }
 
 .marker {
     max-height: 300px;

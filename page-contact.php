@@ -25,11 +25,11 @@ get_header();
 			if ( function_exists( 'get_field' )) :
 
 				$contact_img = get_field( 'contact_hero' );
-				if ( $contact_img ) :
-					?>
-					<div class="contact-hero-image"><?php echo wp_get_attachment_image($contact_img, 'full');
-					the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-					</div> <?php
+				if ( $contact_img ) : ?>
+					<div class="hero-container">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+							<div class="hero-image-container"><?php echo wp_get_attachment_image($contact_img, 'full'); ?>
+					</div></div> <?php
 				endif; 
 
 				if ( get_field('contact_header_text') ) :
