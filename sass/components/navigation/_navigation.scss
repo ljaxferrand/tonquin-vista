@@ -365,7 +365,20 @@ body .menu-toggle {
 
 // STYLES AT FIRST WORDPRESS BREAKPOINT
 @media (min-width: 600px) {
-
+	.shop-icon a svg {
+		fill: #fff;
+		width: 30px;
+		height: auto;
+		background: $color__main_accent;
+		border-radius: 15px;
+		transition: .5s ease-in-out;
+		padding: 3px;
+		&:hover {
+			background: $color__bg_offwhite;
+			fill: $color__bg_green;
+			padding: 5px;
+		}
+	}
 	.main-navigation.toggled #primary-menu {
 		position: relative;
 		min-height: unset;
@@ -433,9 +446,6 @@ body .menu-toggle {
 	.main-navigation {
 		width: 65%;
 	}
-	.menu-header-menu-container {
-		padding-bottom: 7px;
-	}
 	.menu-header-menu-container .nav-menu a {
 		padding-left: 20px;
 		color: white;
@@ -452,8 +462,6 @@ body .menu-toggle {
 }
 // STYLES AT TABLET BREAKPOINT 
 @media (min-width: 768px) {
-
-	
 	.sub-menu .menu-item a {
 		font-size: 1rem;
 		text-align: left;
@@ -466,9 +474,9 @@ body .menu-toggle {
 		padding-right: 0px;
 	}
 	.menu-header-menu-container .nav-menu a {
-		padding-left: 25px;
+		padding-left: 15px;
 		text-transform: uppercase;
-		font-size: 1.15rem;
+		font-size: 1.1rem;
 		font-weight: 400;
 	}
 }
