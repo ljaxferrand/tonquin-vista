@@ -329,13 +329,28 @@ function woocommerce_custom_tabs() {
 add_action('woocommerce_after_single_product_summary', 'see_all_cabins_experiences_btn', 10);
 
 function see_all_cabins_experiences_btn() {
-	$more_cabins_btn = get_field('more_cabins_btn');
-	$activities_btn = get_field('see_activities_btn');
-?>
-<section class="product-page-links">
-<a class="button" href="<?php echo esc_url(get_term_link($more_cabins_btn)); ?>">See Our <?php echo esc_html($more_cabins_btn->name);?></a>
+	$more_cabins_btn = get_field('more_cabins_button');
+	$activities_btn = get_field('see_activities');
 
-<a class="button" href="<?php echo esc_url($activities_btn); ?>">See Activities</a>
+	?>
+<section class="product-page-links">
+	<?php
+
+	if($more_cabins_btn) {
+		?><a class="button" href="<?php echo esc_url(get_term_link($more_cabins_btn)); ?>">See Our <?php echo esc_html($more_cabins_btn->name);?></a>
+<?php
+	} else {
+		return;
+	};
+
+	if($activities_btn) {
+		?><a class="button" href="<?php echo esc_url($activities_btn); ?>">See Activities</a>
+<?php
+	} else {
+		return;
+	};
+
+?>
 </section>
 <?php
 };
