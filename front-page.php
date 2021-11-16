@@ -83,7 +83,7 @@ get_header();
                 <?php 
                 $home_intro = get_field('home_intro_text');
                 ?>
-                <p> <?php echo esc_html($home_intro); ?> </p>
+                <p> <?php echo acf_esc_html($home_intro); ?> </p>
             </section>
         <div class="cabin-experience-wrapper">
             <section id="see-cabins">

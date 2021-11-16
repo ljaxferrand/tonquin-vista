@@ -1,14 +1,4 @@
-// .single-product div.product .woocommerce-product-gallery .flex-control-thumbs {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-between;
-//     margin-bottom: 1rem ;
 
-//     li {
-//         max-width: 25%;
-        
-//     }
-// }
 
 //
 .single-product .wpgs-nav .slick-active img{
@@ -28,11 +18,6 @@
 .single-product .up-sells {
     display: none;
 }
-
-// .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li img{
-//     width: 100%;
-//     height: 100%;
-// }
 
 .single-product article.testimonial {
     margin-left: auto;
@@ -179,22 +164,16 @@
 }
 
 .single-product .button {
-    position: relative;
-    display: block;
-    width: 256px;
-    margin: auto;
-    padding: 1rem .5rem;
-    margin-top: .5rem;
-    margin-bottom: 1rem;
-    border: none;
+    @include button-mobile;
+    margin: 1rem auto;
 
 }
 
-// .single-product img.wp-post-image {
-//      width: 100vw;
-//      object-fit: cover;
-//      margin: auto;
-// }
+.button.wc-bookings-booking-form-button {
+    @include button-desktop;
+    border: none;
+}
+
 
 
 .single-product .woocommerce-tabs ul.tabs {
@@ -224,11 +203,8 @@
 }
 
 .single-product article.testimonial {
-    max-width: 100%;
-    padding: .5rem 1rem 2rem 1rem;
-    background-color: $color__bg_offwhite;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
+    @include testimonial-mobile;
+   
     
 }
 
@@ -237,10 +213,6 @@
     color: $color__text_main;
 }
 
-.single-product ul.products li.product a:hover {
-
-    color: $color__text_secondary;
-}
 
 .single-product ul.products li.product a img {
     margin-left: auto;
@@ -261,10 +233,7 @@
     }
     
     .single-product article.testimonial {
-        max-width: 100%;
-        padding: .5rem 1rem 2rem 1rem;
-        background-color: $color__bg_offwhite;
-        border-radius: 15px;
+        @include testimonial-tablet;
         
     }
 
@@ -290,6 +259,7 @@
         margin-right: auto;
     }
 
+    
 
     
 }
@@ -300,6 +270,23 @@
         max-width: 80%;
         margin-left: auto;
         margin-right: auto;
+
+        .single-product article.testimonial {
+        @include testimonial-desktop;
+        }
+
+        .button.wc-bookings-booking-form-button {
+            @include button-desktop;
+            border: none;
+        }
+
+         .button {
+            @include button-desktop;
+            &:hover {
+                color: #fff;
+            }
+
+        }
     }
 }
 

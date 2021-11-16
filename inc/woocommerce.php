@@ -303,9 +303,13 @@ function testimonials() {
 add_action('woocommerce_single_product_summary', 'check_availability_btn', 5);
 
 function check_availability_btn() {
+	if (has_term('Cabins', 'product_cat') || has_term('Experiences', 'product_cat')) {
 
-	echo "<a class='button' href='#wc-bookings-booking-form'>Check Availability</a>";
-
+		echo "<a class='button' href='#wc-bookings-booking-form'>Check Availability</a>";
+		
+	} else {
+		return;
+	}
 		
 };
 
@@ -325,17 +329,36 @@ function woocommerce_custom_tabs() {
 add_action('woocommerce_after_single_product_summary', 'see_all_cabins_experiences_btn', 10);
 
 function see_all_cabins_experiences_btn() {
-	$more_cabins_btn = get_field('more_cabins_btn');
-	$activities_btn = get_field('see_activities_btn');
-?>
-<section class="product-page-links">
-<a class="button" href="<?php echo esc_url(get_term_link($more_cabins_btn)); ?>">See Our <?php echo esc_html($more_cabins_btn->name);?></a>
+	$more_cabins_btn = get_field('more_cabins_button');
+	$activities_btn = get_field('see_activities');
 
-<a class="button" href="<?php echo esc_url($activities_btn); ?>">See Activities</a>
+	?>
+<section class="product-page-links">
+	<?php
+
+	if($more_cabins_btn) {
+		?><a class="button" href="<?php echo esc_url(get_term_link($more_cabins_btn)); ?>">See Our <?php echo esc_html($more_cabins_btn->name);?></a>
+<?php
+	} else {
+		return;
+	};
+
+	if($activities_btn) {
+		?><a class="button" href="<?php echo esc_url($activities_btn); ?>">See Activities</a>
+<?php
+	} else {
+		return;
+	};
+
+?>
 </section>
 <?php
 };
 
 
-
+// removes all woocommerce breadcrumbs
+add_action( 'init', 'woo_remove_wc_breadcrumbs' );
+function woo_remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
 

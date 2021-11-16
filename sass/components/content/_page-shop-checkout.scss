@@ -66,8 +66,13 @@
     justify-content: flex-end;
 }
 
-.page-id-12 .cart-subtotal, .page-id-12 .order-total {
+.page-id-12 .tax-total .woocommerce-Price-amount {
     text-align: right;
+}
+
+.page-id-12 .cart-subtotal, .page-id-12 .order-total {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .page-id-12 .wc_payment_methods.payment_methods.methods {
