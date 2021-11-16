@@ -1,17 +1,33 @@
 <?php
 
 /**
- * Display category image as a Hero on category archive
+ * Display category image and title as a Hero section on category archive
  */
 add_action( 'woocommerce_archive_description', 'woocommerce_category_image', 2 );
 function woocommerce_category_image() {
-    if ( is_product_category() ){
+
+
+    if ( is_product_category('cabins') ){
+
+        add_filter( 'get_the_archive_title', function ($title) {
+            if ( is_tax() ) {
+                $title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+            } 
+            return $title;
+            });
+       
 	    global $wp_query;
 	    $cat = $wp_query->get_queried_object();
 	    $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-	    if ( $thumbnail_id ) {
-		    echo wp_get_attachment_image( $thumbnail_id, $size = 'full');
-		}
+
+        echo '<div class="hero-container">';
+        the_archive_title( '<h1 class="page-title">', '</h1>' );
+            if ( $thumbnail_id ) {
+                echo '<div class="hero-image-container">';
+                echo wp_get_attachment_image( $thumbnail_id, $size = 'full');
+                echo '</div>';
+            }
+        echo '</div>';
 	}
 }       
 
@@ -88,7 +104,7 @@ add_action( 'woocommerce_after_shop_loop_item_title', 'custom_field_display_belo
  */
 add_filter( 'woocommerce_before_main_content', 'remove_breadcrumbs');
 function remove_breadcrumbs() {
-    if( is_product_category( 'cabins' )) {
+    if( is_product_category( 'cabins' ) || is_shop()) {
         remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
     }
 }

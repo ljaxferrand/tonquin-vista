@@ -1,4 +1,3 @@
-
 .owner-info {
     @include center-block;
     max-width: 45rem;
@@ -14,28 +13,13 @@
     border-radius: 70% 30% 53% 47% / 39% 38% 62% 61%;
 }
 
-.page-id-88 h1 {
-    position: absolute;
-    top: 34%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white; 
-    text-transform: uppercase;
-}
-
-@media (min-width: $mq__tablet) {
-   .page-id-88 h1 {
-       font-size: 3.5rem;
-   }
-}
-
 #explore-experiences.about {
             
     margin: 1rem auto;
     padding: 0 1rem;
     max-width: 50rem;
     
-    // Tabs on activites page for experience and explore
+    // Info Tabs
     ul {
         list-style: none;
         padding: 0 0.25rem;
@@ -106,7 +90,6 @@
     h2 {
         text-align: center;
     }
-
 }
 
 .page-id-88 #contact-address  {
@@ -116,14 +99,11 @@
 }
 
 .page-id-88 a.button {
- display: block;
- margin: 0 auto;
- text-align: center;
- width: 15rem;
- padding: 1rem 2rem;
- border-radius: 2rem;
- text-decoration: none;
- box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
- transition: 0.3s;
- font-size: 1.1rem;
+    @include button-mobile;
+    max-width: 185px;
+
+    @media screen and (min-width: $mq__desktop_small) {
+        @include button-desktop;
+        max-width: 265px;
+    }
 }

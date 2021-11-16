@@ -16,39 +16,41 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-
-
     <?php
 		while ( have_posts() ) :
 			the_post();
 
-			the_title( '<h1 class="page-title">', '</h1>' );
-
 			if( function_exists( 'get_field' )) :
 
-				$about_img = get_field( 'about_hero' );
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-		
-				if ( $about_img ) :
-					echo wp_get_attachment_image( $about_img, $size );
-				endif; ?>
-				
+				echo '<div class="hero-container">';
+
+						the_title( '<h1 class="page-title">', '</h1>' );
+
+						$about_img = get_field( 'about_hero' );
+						$size = 'full'; // (thumbnail, medium, large, full or custom size)
+			
+						if ( $about_img ) :
+							echo '<div class="hero-image-container">';
+							echo wp_get_attachment_image( $about_img, $size );
+							echo '</div>';
+						endif; 
+				echo '</div>'; ?>
+
 				<section class="owner-info"> 
 
 					<?php
 					$owner_img = get_field( 'owner_image' );
 					$size = 'large'; // (thumbnail, medium, large, full or custom size)
+
 					if ( $owner_img ) :
 						echo wp_get_attachment_image( $owner_img, $size );
 					endif; 
-					
 			
-					if ( get_field('about_owners') ) :
-						?>
+					if ( get_field('about_owners') ) : ?>
+						
 						<p><?php the_field( 'about_owners' ); ?> </p> 
 						<?php 
 					endif; ?>
-
 				</section>
 
 				<!-- Info Tabs -->
@@ -64,12 +66,11 @@ get_header();
 						<section class='tab-pane active' id="gettinghere">
 							<?php
 
-							if ( get_field('map_title') ) :
-								?>
+							if ( get_field('map_title') ) : ?>
+								
 								<h2><?php the_field( 'map_title' ); ?> </h2> 
 								<?php 
 							endif; 
-
 
 							$location = get_field('main_office_map');
 							if( $location ): ?>
@@ -100,19 +101,17 @@ get_header();
 										<?php echo $addressline2 ?><br/>
 										<?php echo $phone ?></p>
 										<?php
-											if ( get_field('hours') ) :
-										?>
-										<p><?php the_field( 'hours' ); ?> </p> 
-										<?php 
+										if ( get_field('hours') ) : ?>
+										
+											<p><?php the_field( 'hours' ); ?> </p> 
+											<?php 
 										endif; ?>
 									</div>
-								<?php endwhile; ?>
-							<?php endif;
+								<?php endwhile;
+							 	endif;
 
-						
-		
-							if ( get_field('contact_page_link') ) :
-								?>
+							if ( get_field('contact_page_link') ) : ?>
+								
 								<a class="button" href="<?php the_field( 'contact_page_link' ); ?>">Visit our Contact Page</a>
 								<?php 
 							endif; ?>
@@ -121,13 +120,12 @@ get_header();
 						<section class='tab-pane' id="localweather">
 
 							<?php		
-							if ( get_field('weather_heading') ) :
-								?>
+							if ( get_field('weather_heading') ) : ?>
+								
 								<h2><?php the_field( 'weather_heading' ); ?> </h2> 
 								<?php 
 							endif; 
 
-					
 							// Weather Atlas Widget shortcode
 							echo do_shortcode( '[shortcode-weather-atlas city_selector=325344 layout="horizontal" background_color="#637368" daily=5 unit_c_f="c"]' ); ?>
 						</section>	
