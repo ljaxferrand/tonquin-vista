@@ -213,10 +213,6 @@
     color: $color__text_main;
 }
 
-.single-product ul.products li.product a:hover {
-
-    color: $color__text_secondary;
-}
 
 .single-product ul.products li.product a img {
     margin-left: auto;
@@ -284,9 +280,11 @@
             border: none;
         }
 
-        .single-product .button {
+         .button {
             @include button-desktop;
-
+            &:hover {
+                color: #fff;
+            }
 
         }
     }
