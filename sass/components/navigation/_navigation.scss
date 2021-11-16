@@ -289,16 +289,17 @@ body .menu-toggle {
 	
 	padding: 10px;
 	border-radius: 0px 0px 5px 5px;
-	& a {
+	a {
 		padding-top: 5px;
 		padding-bottom: 5px;
 		font-size: 1rem;
 		padding-left: 5px;
+
 		&:hover {
 			border-radius: 0px 0px 10px 0px;
 			transition: .25s ease-in-out;
 			background-color: #3d7d21;
-			transform: translateX(40px);
+			transform: translateX(40px) !important;
 		}
 	}
 }
@@ -485,13 +486,24 @@ body .menu-toggle {
 		font-size: 1.5rem;
 		font-weight: 400;
 		padding-top: 10px;
-		transition: 0.3s;
+		transition: all 0.3s ease-in-out;
 
 		&:hover {
 			color: $color__main_accent;
 			transform: scale(1.05);
 		}
 	}
+
+	.main-navigation ul ul a {
+
+		&:hover {
+			border-radius: 0px 0px 10px 0px;
+			transition: .25s ease-in-out;
+			background-color: #3d7d21;
+			transform: translateX(40px);
+		}
+	}
+
 	.sub-menu .menu-item a {
 		font-size: 1.15rem;
 	}
