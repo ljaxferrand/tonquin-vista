@@ -1,28 +1,18 @@
 .button.add_to_cart_button {
-    text-decoration: none;
-    color: #fff;
-    background-color: #dcb00b;
-    padding: 0.7rem 1.1rem;
-    border-radius: 30px;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-    text-align: center;
-    max-width: 125px;
-    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+   @include button-mobile;
+   max-width: 150px;
+
+   @media screen and (min-width: $mq__desktop_small) {
+        @include button-desktop;
+        max-width: 165px;
+    }
 }
 
+.woocommerce-products-header__title.page-title {
+   display: none;
+}
 
 .archive.tax-product_cat.term-cabins{
-
-    h1 {
-        position: absolute;
-        top: 34%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white; 
-        text-transform: uppercase;
-    }
 
     .products {
         display: flex;
@@ -30,9 +20,8 @@
         justify-content: space-evenly;
         padding: 1rem;
         margin: 0 auto;
-        max-width: 80rem;
-        
-
+        max-width: 67rem;
+    
         img {
             display: block;
             margin: 0 auto;
@@ -42,9 +31,9 @@
         li {
             background-color: $color__bg_offwhite;
             box-shadow: rgb(50 50 93 / 15%) 0px 13px 27px -5px, rgb(0 0 0 / 30%) 0px 8px 16px -8px;
-            padding: 1rem 2rem 4rem 2rem;
+            padding: 1rem 2rem 5rem 2rem;
             margin: 1rem;
-            width: 25rem;
+            width: 30rem;
             position: relative;
             border-radius: 10px;
         }
@@ -60,11 +49,9 @@
 
         .button {
             position: absolute;
-            bottom: 0.25rem;
+            bottom: 1rem;
             left: 0;
-            right: 0;
-            color: $color__button_text;
-    
+            right: 0;    
         }
     }
 
@@ -73,12 +60,6 @@
         max-width: 50rem;
         padding: 1rem 2rem;
     }
-}
-
-@media (min-width: $mq__tablet) {
-    .archive.tax-product_cat.term-cabins h1 {
-       font-size: 3.5rem;
-   }
 }
 
 .marker {
