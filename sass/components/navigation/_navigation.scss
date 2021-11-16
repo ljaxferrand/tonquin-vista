@@ -290,12 +290,27 @@ body .menu-toggle {
 	}
 }
 
+@media screen and (max-width: $mq__tablet) {
+	.main-navigation.toggled {
+
+		.menu-header-menu-container {
+
+			direction: rtl;
+
+			#primary-menu {
+				min-height: 100vh;
+				overflow: scroll;
+			}
+		}
+	}
+}
+
 .main-navigation.toggled #primary-menu {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 80%;
-	min-height: 100vh;
+	max-height: 100vh;
 	z-index: 10;
 	background-color: $color__bg_offwhite;
 	display: flex;
