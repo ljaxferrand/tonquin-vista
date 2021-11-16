@@ -76,8 +76,12 @@ get_header();
                             endif;
 
                             // Gift Card Button
+                            if ( $experiences_group['gift_card_btn_text'] ) :
+                                ?>
+                                <a href="#gift-card-section" class='gift-card-btn'><?php echo esc_html( $experiences_group['gift_card_btn_text'] ); ?></a>
+                                <?php
+                            endif;
                             ?>
-                            <a href="#gift-card-section" class='gift-card-btn'><?php echo esc_html( $experiences_group['gift_card_btn_text'] ); ?></a>
 
                             
                             <?php

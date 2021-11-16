@@ -158,6 +158,15 @@ function tonquin_vista_scripts() {
 	wp_enqueue_script( 'tonquin-vista-activities-tab-control', get_template_directory_uri() . '/js/activities-tab-control.js', array(), _S_VERSION, true );
 
 	if ( is_front_page() ) :
+		// Font on Home slider
+		wp_enqueue_style(
+			'tonquin-vista-playfair',
+			'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap',
+			array(),
+			null
+		);
+
+		// Styles and scripts for swiperJS
 		wp_enqueue_style(
 			'tonquin-vista-swiper',
 			'https://unpkg.com/swiper@7/swiper-bundle.min.css',

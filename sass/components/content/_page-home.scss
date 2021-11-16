@@ -213,44 +213,21 @@ body .cnm_inner .cnm_btn {
 // TESTIMONIALS SECTION
 
 .testimonial {
-    text-align: center;
-    padding: 50px 50px 50px;
-    margin-bottom: 50px;
+    @include testimonial-mobile; 
 }
 
-.page-id-68 blockquote {
-    font-style: italic;
-    padding: 10px;
-    background-color: $color__bg_offwhite;
-    font-weight: 200;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    max-width: 600px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.page-id-68 cite {
-    color: $color__main_accent;
-    font-weight: 400;
-}
 
 @media (min-width: $mq__tablet) {
-    .page-id-68 h4 {
-        font-size: 1.5rem;
+    .page-id-68 .testimonial {
+    @include testimonial-tablet;
     }
-    .page-id-68 blockquote {
-        font-size: 1.25rem;
-    }
+   
 }
 
 @media (min-width: $mq__desktop_small) {
-    .page-id-68 h4 {
-        font-size: 2rem;
+    .page-id-68 .testimonial {
+    @include testimonial-desktop; 
     }
-    .page-id-68 blockquote {
-        font-size: 1.5rem;
-    }
+   
 }
 
