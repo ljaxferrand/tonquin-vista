@@ -220,6 +220,11 @@
                                 display: block;
                                 margin-left: 15vw;
                                 margin-top: 4.5vh;
+                                transition: 0.3s;
+                                
+                                &:hover {
+                                    transform: scale(1.05);
+                                }
                             }
                         }
                     }
