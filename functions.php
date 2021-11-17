@@ -155,7 +155,10 @@ function tonquin_vista_scripts() {
 
 	wp_enqueue_script( 'tonquin-vista-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-	wp_enqueue_script( 'tonquin-vista-activities-tab-control', get_template_directory_uri() . '/js/activities-tab-control.js', array(), _S_VERSION, true );
+
+	if ( is_product() || is_page( 'about' ) || is_page( 'activities' ) ) :
+		wp_enqueue_script( 'tonquin-vista-activities-tab-control', get_template_directory_uri() . '/js/activities-tab-control.js', array(), _S_VERSION, true );
+	endif;
 
 	if ( is_front_page() ) :
 		// Font on Home slider
