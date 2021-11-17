@@ -256,6 +256,12 @@ function wporg_add_dashboard_widgets() {
         esc_html__( 'Responsive Accordion Tutorial', 'wporg' ), // Title.
         'wporg_dashboard_widget_render'                    // Display function.
     ); 
+
+	wp_add_dashboard_widget(
+        'wporg_dashboard_widget_2',                          // Widget slug.
+        esc_html__( 'Tutorial: Edit Website Content', 'wporg' ), // Title.
+        'wporg_dashboard_widget_render_2'                    // Display function.
+    ); 
 }
 add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
  
@@ -273,6 +279,16 @@ function wporg_dashboard_widget_render() {
 		?>" >
 		Please click this link for the PDF tutorial.
 		</a>
+	</div>
+	<?php
+}
+
+function wporg_dashboard_widget_render_2() {
+    esc_html_e( "Learn how to edit the website content.", "wporg" );
+	?>
+	<div class="faq-tutorial">
+		<br>
+		<iframe width="387" height="315" src="https://www.youtube.com/embed/gGGsbz_vKqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 	<?php
 }
