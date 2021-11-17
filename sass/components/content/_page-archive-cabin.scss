@@ -31,6 +31,16 @@
         a {
             text-decoration: none;
             color: $color__text_main;
+
+            .price {
+                display: block;
+                text-align: center;
+            }
+        }
+
+       
+        .woocommerce-Price-amount {
+            font-size: 1.5rem;
         }
 
         .button.add_to_cart_button {
