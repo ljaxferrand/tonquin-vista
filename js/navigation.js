@@ -45,6 +45,19 @@
 		}
 	} );
 
+	// Click listener for sub menu 
+	subMenuButton = document.getElementById( 'menu-item-240' ).firstElementChild;
+	subMenuLI = document.getElementById( 'menu-item-240' );
+	subMenu = document.getElementsByClassName( '.sub-menu' );
+
+	subMenuButton.addEventListener( 'click', function() {
+		subMenu.classList.toggle( 'active' );
+	} );
+
+	subMenuLI.addEventListener( 'click', function() {
+		subMenu.classList.toggle( 'active' );
+	} );
+
 	
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
@@ -53,6 +66,7 @@
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
+			subMenu.classList.remove( 'active' );
 			// siteNavBg.classList.remove('show');
 			
 			
