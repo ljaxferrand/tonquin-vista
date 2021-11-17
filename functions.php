@@ -243,6 +243,42 @@ function wporg_remove_dashboard_widget() {
 // Hook into the 'wp_dashboard_setup' action to register our function
 add_action( 'wp_dashboard_setup', 'wporg_remove_dashboard_widget' );
 
+/**
+ * DEFAULT CODE FOR ADDING a widget to the dashboard.
+ *
+ * This function is hooked into the 'wp_dashboard_setup' action below.
+ */
+
+// ADD WIDGETS STARTS HERE ----------------------------------------------- 
+function wporg_add_dashboard_widgets() {
+    wp_add_dashboard_widget(
+        'wporg_dashboard_widget',                          // Widget slug.
+        esc_html__( 'Responsive Accordion Tutorial', 'wporg' ), // Title.
+        'wporg_dashboard_widget_render'                    // Display function.
+    ); 
+}
+add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
+ 
+/** IF IT IS A TUTORIAL WIDGET
+ * Create the function to output the content of our Dashboard Widget.
+ */
+function wporg_dashboard_widget_render() {
+    // Display whatever you want to show.
+    esc_html_e( "Learn how to add a new FAQ using the Responsive Accordion plugin", "wporg" );
+	?>
+	<div class="faq-tutorial">
+		<br>
+		<a href="<?php 
+		echo get_template_directory_uri() . '/tutorials/faq-accordion-tutorial.pdf'
+		?>" >
+		Please click this link for the PDF tutorial.
+		</a>
+	</div>
+	<?php
+}
+// ADD WIDGETS ENDS HERE --------------------------------------------------
+
+
 // To change the link values so the logo links to your WordPress site
 function my_login_logo_url() {
     return home_url();
