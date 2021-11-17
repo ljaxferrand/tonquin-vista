@@ -56,7 +56,7 @@ get_header();
                 ?>
 
                 <!-- Style for tabs added to sass/components/navigation/_navigation.scss -->
-                <div id="explore-experiences">
+                <section id="explore-experiences">
                     <ul id="nav-tab" class="nav-tab-ul">
                         <li><a href="#experiences" class="active">Experience</a></li>
                         <li><a href="#explore">Explore</a></li>
@@ -69,9 +69,9 @@ get_header();
                             $experiences_group = get_field( 'experience_group' );
                             if ( $experiences_group ) :
                                 ?>
-                                <div class="experience-intro">
+                                <section class="experience-intro">
                                     <p> <?php echo acf_esc_html( $experiences_group['experience_intro'] ); ?> </p>
-                                </div>
+                                </section>
                                 <?php
                             endif;
 
@@ -106,7 +106,7 @@ get_header();
                             while ( $query->have_posts() ) : 
                                 $query->the_post();
                                 ?>
-                                <div class="experience-card-content">
+                                <section class="experience-card-content">
                                     <div class="card-top">
                                         <h3> <?php echo get_the_title(); ?> </h3>
                                         <div class="card-image">
@@ -121,7 +121,7 @@ get_header();
                                         ?>
                                     </div>
                                     <a href="<?php echo get_permalink() ?>" id='experience-book-btn'>Book Now</a>
-                                </div>
+                                </section>
                                 <?php
                             endwhile;
                             wp_reset_postdata(); 
@@ -152,7 +152,7 @@ get_header();
                                 while ( $gift_query->have_posts() ) : 
                                     $gift_query->the_post();
                                     ?>
-                                    <div class="gift-card-content">
+                                    <section class="gift-card-content">
                                         <div class="card-top">
                                             <h3 id='gift-card-title'> <?php echo get_the_title(); ?> </h3>
                                             <div class="card-image">
@@ -163,7 +163,7 @@ get_header();
                                         
                                             <a href="<?php echo get_permalink() ?>" id='gift-card-purchase'>Purchase</a>
                                         </div>
-                                    </div>
+                                    </section>
                                     <?php
                                 endwhile;
                                 wp_reset_postdata();
@@ -179,9 +179,9 @@ get_header();
                             
                             if ( $explore_group ) :
                                 ?>
-                                <div class="explore-intro">
+                                <section class="explore-intro">
                                     <p> <?php echo acf_esc_html( $explore_group['explore_intro'] ); ?> </p>
-                                </div>
+                                </section>
 
                                 <h2> <?php echo esc_html( $explore_group['vendors_title'] ); ?> </h2>
                                 
@@ -239,7 +239,7 @@ get_header();
                                                             ?>
                                                         </a>
 
-                                                        <a href="<?php echo esc_url( get_sub_field('vendor_url')); ?>" class="explore-button" target='_blank'><?php echo esc_html($explore_group['tourism_btn_text']) ?></a>
+                                                        <a href="<?php echo esc_url( get_sub_field('tourism_url')); ?>" class="explore-button" target='_blank'><?php echo esc_html($explore_group['tourism_btn_text']) ?></a>
 
                                                         <div class="explore-text-container">
                                                             <p> <?php esc_html( the_sub_field('tourism_description') ) ?> </p>
@@ -258,7 +258,7 @@ get_header();
                             ?>
                         </section>
                     </div>
-                </div>
+                </section>
                 
                 <?php 
             endif;
