@@ -70,18 +70,34 @@
     text-align: right;
 }
 
-.page-id-12 .cart-subtotal, .page-id-12 .order-total {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .page-id-12 .wc_payment_methods.payment_methods.methods {
     margin: 0;
     padding: 0;
 }
 
+.page-id-12 .tax-total .woocommerce-Price-amount bdi {
+    float: right;
+}
+
 .page-id-12 #place_order {
     border: none;
 }
+
+.page-id-12 .cart-subtotal th {
+    float: right;
+}
+
+.page-id-12 tfoot td .amount bdi {
+    float: right;
+}
+
+.page-id-12 tfoot .order-total th {
+    float: right;
+}
+
+
+
+
+
 
 			
