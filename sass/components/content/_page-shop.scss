@@ -39,15 +39,24 @@
     li {
         margin-left: auto;
         margin-right: auto;
-        padding: .5rem;
         text-align: center;
         width: 100%;
         align-self: stretch;
         align-items: stretch;
+        background-color: $color__bg_offwhite;
+        box-shadow: rgb(50 50 93 / 15%) 0px 13px 27px -5px, rgb(0 0 0 / 30%) 0px 8px 16px -8px;
+        border-radius: 10px;
+        padding: 1rem;
         
         img {
             margin-left: auto;
             margin-right: auto;
+            border-radius: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: $color__text_main;
         }
 
         a.button {
@@ -72,23 +81,7 @@
         justify-content: center;
         align-items: stretch;
         grid-gap: .5rem ;
-        padding: 1rem;
-
-        img {
-            border-radius: 10px;
-        }
-
-        a {
-            text-decoration: none;
-            color: $color__text_main;
-        }
-
-        li {
-            background-color: $color__bg_offwhite;
-            box-shadow: rgb(50 50 93 / 15%) 0px 13px 27px -5px, rgb(0 0 0 / 30%) 0px 8px 16px -8px;
-            border-radius: 10px;
-            padding: 1rem;
-        }        
+        padding: 1rem;      
     }
 }
 
