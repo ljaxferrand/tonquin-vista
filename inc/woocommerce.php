@@ -304,9 +304,9 @@ add_action('woocommerce_single_product_summary', 'check_availability_btn', 5);
 
 function check_availability_btn() {
 	if (has_term('Cabins', 'product_cat') || has_term('Experiences', 'product_cat')) {
-
-		echo "<a class='button' href='#wc-bookings-booking-form'>Check Availability</a>";
-		
+?>
+		<button class="button" onClick= "document.getElementById('wc-bookings-booking-form').scrollIntoView().stopPropogation();">Check Availability</button>
+		<?php
 	} else {
 		return;
 	}
