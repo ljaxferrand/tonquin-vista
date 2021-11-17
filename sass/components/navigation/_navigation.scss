@@ -85,6 +85,29 @@
 	}
 
 }
+
+// Nav menu icon change 
+button.menu-toggle {
+
+	#open-icon {
+		display: block;
+	}
+
+	#close-icon {
+		display: none;
+	}
+}
+
+button.toggled {
+	#close-icon {
+		display: block;
+	}
+
+	#open-icon {
+		display: none;
+	}
+}
+
 // Tab Navigation on Single Cabin Page
 // ----------------------------------------------------------------------------------------------
 #amenities-rates{
@@ -236,6 +259,7 @@ body .menu-toggle {
 }
 
 .main-navigation.toggled #primary-menu {
+	transition: width 1s ease-in-out;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -279,12 +303,13 @@ body .menu-toggle {
 
 
 
-#menu-item-240 a:after {
+#menu-item-240 a::before {
 	color: $color__text_main;
     content: '\2193';
+	margin-left: 0.5rem;
 }
 
-#menu-item-240 .sub-menu a:after {
+#menu-item-240 .sub-menu a::before {
 	
 	content: none;
 }
@@ -309,6 +334,10 @@ body .menu-toggle {
 		display: flex;
 	}
 
+	#menu-item-240 a::before {
+		content: none;
+	}
+
 	.main-navigation ul ul {
 
 		a {
@@ -320,8 +349,8 @@ body .menu-toggle {
 			&:hover {
 				border-radius: 0px 0px 10px 0px;
 				transition: .25s ease-in-out;
-				background-color: #3d7d21ae;
-				transform: translateX(40px) !important;
+				background-color: #637368af;
+				transform: translateX(20px) !important;
 			}
 		}
 	}
@@ -484,21 +513,11 @@ body .menu-toggle {
 		font-size: 1.5rem;
 		font-weight: 400;
 		padding-top: 10px;
-		transition: all 0.3s ease-in-out;
 
 		&:hover {
 			color: $color__main_accent;
 			transform: scale(1.05);
-		}
-	}
-
-	.main-navigation ul ul a {
-
-		&:hover {
-			border-radius: 0px 0px 10px 0px;
-			transition: .25s ease-in-out;
-			background-color: #3d7d21;
-			transform: translateX(40px);
+			transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 		}
 	}
 
