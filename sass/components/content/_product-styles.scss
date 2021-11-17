@@ -159,6 +159,7 @@
         a {
             @include button-mobile;
             max-width: 15rem;
+            margin-bottom: 1rem;
     
             @media screen and (min-width: $mq__desktop_small) {
                 @include button-desktop;
