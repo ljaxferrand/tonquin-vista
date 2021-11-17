@@ -38,6 +38,16 @@ function tonquin_vista_woocommerce_setup() {
 }
 add_action( 'after_setup_theme', 'tonquin_vista_woocommerce_setup' );
 
+
+//  Woocommerce single image size 
+
+add_filter( 'woocommerce_get_image_size_single', function( $size ) {
+	return array(
+	'width' => 1920,
+	'height' => 1250,
+	'crop' => 1,
+	);
+	} );
 /**
  * WooCommerce specific scripts & stylesheets.
  *
