@@ -17,3 +17,19 @@
 	margin: 0 0 1.5em;
 }
 
+.single-product {
+
+ .woocommerce-message {
+	background-color: $color__bg_offwhite;
+	padding: 1rem;
+	border-radius: 10px;
+}
+.woocommerce-error {
+	background-color: rgb(253, 188, 188);
+	padding: 1rem;
+	border-radius: 10px;
+	list-style: none;
+	margin-left: 0;
+
+}
+}
