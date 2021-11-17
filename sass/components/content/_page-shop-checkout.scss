@@ -66,8 +66,8 @@
     justify-content: flex-end;
 }
 
-.page-id-12 .tax-total .woocommerce-Price-amount {
-    text-align: right;
+.page-id-12 .tax-total tr {
+    float: right;
 }
 
 .page-id-12 .wc_payment_methods.payment_methods.methods {
