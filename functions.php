@@ -262,6 +262,12 @@ function wporg_add_dashboard_widgets() {
         esc_html__( 'Tutorial: Edit Website Content', 'wporg' ), // Title.
         'wporg_dashboard_widget_render_2'                    // Display function.
     ); 
+
+	wp_add_dashboard_widget(
+        'wporg_dashboard_widget_3',                          // Widget slug.
+        esc_html__( 'Tutorial: Creating Discount Codes', 'wporg' ), // Title.
+        'wporg_dashboard_widget_render_3'                    // Display function.
+    ); 
 }
 add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
  
@@ -289,6 +295,16 @@ function wporg_dashboard_widget_render_2() {
 	<div class="faq-tutorial">
 		<br>
 		<iframe width="387" height="315" src="https://www.youtube.com/embed/gGGsbz_vKqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	<?php
+}
+
+function wporg_dashboard_widget_render_3() {
+    esc_html_e( "How to create a discount code for a marketing campaign.", "wporg" );
+	?>
+	<div class="faq-tutorial">
+		<br>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/5EtnRlY6VT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 	<?php
 }
