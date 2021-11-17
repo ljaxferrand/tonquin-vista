@@ -216,7 +216,7 @@ add_action( 'wp_enqueue_scripts', 'tonquin_vista_scripts' );
 function my_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/wp-login-logo.png);
+        background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/wp-login-logo.png);
 		height:100px;
 		width: auto;
 		background-size: 100px 100px;
@@ -224,7 +224,7 @@ function my_login_logo() { ?>
         	padding-bottom: 30px;
         }
     </style>
-<?php }
+ <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 // REMOVES ALL OF THE FOLLOWING DASHBOARD WIDGETS
@@ -268,6 +268,12 @@ function wporg_add_dashboard_widgets() {
         esc_html__( 'Tutorial: Creating Discount Codes', 'wporg' ), // Title.
         'wporg_dashboard_widget_render_3'                    // Display function.
     ); 
+
+	wp_add_dashboard_widget(
+        'wporg_dashboard_widget_4',                          // Widget slug.
+        esc_html__( 'Tutorial: Bookings Plugin', 'wporg' ), // Title.
+        'wporg_dashboard_widget_render_4'                    // Display function.
+    ); 
 }
 add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
  
@@ -304,7 +310,17 @@ function wporg_dashboard_widget_render_3() {
 	?>
 	<div class="faq-tutorial">
 		<br>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/5EtnRlY6VT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="387" height="315" src="https://www.youtube.com/embed/5EtnRlY6VT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	<?php
+}
+
+function wporg_dashboard_widget_render_4() {
+    esc_html_e( "How to use the WooCommerce Bookings Plugin", "wporg" );
+	?>
+	<div class="faq-tutorial">
+		<br>
+		<iframe width="387" height="315" src="https://www.youtube.com/embed/LM--nBPyETU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 	<?php
 }
