@@ -221,11 +221,12 @@ function my_login_logo() { ?>
 		width: auto;
 		background-size: 100px 100px;
 		background-repeat: no-repeat;
-        	padding-bottom: 30px;
+        padding-bottom: 30px;
         }
     </style>
  <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
 
 // REMOVES ALL OF THE FOLLOWING DASHBOARD WIDGETS
 // Create the function to use in the action hook
@@ -339,7 +340,8 @@ function my_login_logo_url_title() {
 add_filter( 'login_headertext', 'my_login_logo_url_title' );
 
 function my_login_stylesheet() {
-    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/sass/components/content/_page-login.scss' );
+    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/style-page-login.css' );
+    // wp_enqueue_script( 'custom-login', get_stylesheet_directory_uri() . '/style-login.js' );
 }
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
