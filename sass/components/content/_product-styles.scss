@@ -137,6 +137,15 @@
             right: 0;
         }
 
+        .price {
+            display: block;
+            text-align: center;
+        }
+
+        .woocommerce-Price-amount {
+            font-size: 1.5rem;
+        }
+
     }
 
     .cart_totals{
@@ -166,6 +175,12 @@
                 max-width: 20rem;
             }
         }
+
+        .woocommerce-remove-coupon {
+            background-color: $color__bg_green;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
     }
 }
 
@@ -176,3 +191,4 @@
 table.shop_table_responsive tr td.product-thumbnail::before {
     content: attr(data-title) " ";
 }
+
