@@ -408,3 +408,9 @@ require get_template_directory() . '/inc/map-settings.php';
 /** Requiring file that has custom Cabins Category Page hooks */
 require get_template_directory() . '/inc/cabins-category-hooks.php';
 
+
+function move_yoast_below_acf() {
+    return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'move_yoast_below_acf');
+
