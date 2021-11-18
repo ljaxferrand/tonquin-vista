@@ -35,14 +35,11 @@
 
 // STYLING FOR BUTTON
 .page-id-43 .wp-block-button__link { 
-    color: $color__text_main;
-    background-color: $color__button;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    transition: .2s ease-in-out;
-    &:hover {
-        background-color: $color__hover_button;
-    }
-    &:active {
-        transform: scale(.95);
+    @include button-mobile;
+        max-width: 175px;
+     
+    @media screen and (min-width: $mq__desktop_small) {
+        @include button-desktop;
+        max-width: 200px;
     }
 }
