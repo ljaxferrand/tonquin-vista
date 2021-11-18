@@ -275,6 +275,12 @@ function wporg_add_dashboard_widgets() {
         esc_html__( 'Tutorial: Bookings Plugin', 'wporg' ), // Title.
         'wporg_dashboard_widget_render_4'                    // Display function.
     ); 
+
+	wp_add_dashboard_widget(
+		'wporg_dashboard_widget_5',                          // Widget slug.
+		esc_html__( 'Tutorial: Add New Products', 'wporg' ), // Title.
+		'wporg_dashboard_widget_render_5'                    // Display function.
+	);
 }
 add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
  
@@ -325,6 +331,18 @@ function wporg_dashboard_widget_render_4() {
 	</div>
 	<?php
 }
+
+function wporg_dashboard_widget_render_5() {
+    esc_html_e( "How to add new Accommodation Products", "wporg" );
+	?>
+	<div class="faq-tutorial">
+		<br>
+		<iframe width="387" height="315" src="https://www.youtube.com/embed/jXaZeaTNtV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	<?php
+}
+
+
 // ADD WIDGETS ENDS HERE --------------------------------------------------
 
 
