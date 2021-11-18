@@ -436,3 +436,24 @@ function tonquin_post_filter($use_block_editor, $post) {
 	}
 }
 add_filter('use_block_editor_for_post', 'tonquin_post_filter', 10, 2);
+
+// Wsywyg toolbar customization 
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+function my_toolbars( $toolbars )
+{
+
+	// Add a new toolbar called "Very Simple"
+	// - this toolbar has only 1 row of buttons
+	$toolbars['Very Simple' ] = array();
+	$toolbars['Very Simple' ][1] = array('bold' , 'italic' , 'underline' );
+
+	// Edit the "Full" toolbar and remove 'code'
+	
+	if( ($key = array_search('code' , $toolbars['Full' ][2])) !== false )
+	{
+	    unset( $toolbars['Full' ][2][$key] );
+	}
+
+	// return $toolbars - IMPORTANT!
+	return $toolbars;
+}
