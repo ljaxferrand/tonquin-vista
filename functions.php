@@ -408,3 +408,19 @@ require get_template_directory() . '/inc/map-settings.php';
 /** Requiring file that has custom Cabins Category Page hooks */
 require get_template_directory() . '/inc/cabins-category-hooks.php';
 
+// Change Yoast priority
+function move_yoast_below_acf() {
+    return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'move_yoast_below_acf');
+
+// Remove block editor
+function tonquin_post_filter($use_block_editor, $post) {
+
+	if (!is_page(array( 125, 335))) {
+		return false;
+	} else {
+		return $use_block_editor;
+	}
+}
+add_filter('use_block_editor_for_post', 'tonquin_post_filter', 10, 2);
