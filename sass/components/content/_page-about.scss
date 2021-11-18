@@ -24,21 +24,28 @@
         list-style: none;
         padding: 0 0.25rem;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-evenly;
         width: 100%;
         margin: 2rem auto;
         max-width: 900px;
 
+
+
         @media screen and (min-width: 27.5em) {
             flex-wrap: nowrap;
+            flex-direction: row;
         }
         
         li {
-            width: 50%;
+            width: 95%;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
+
+            @media screen and (min-width: 27.5em) {
+                width: 50%
+            }
         
             a {
                 width: 100%;
