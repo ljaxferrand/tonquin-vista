@@ -62,9 +62,7 @@ function add_map() {
                     <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
                             <div class="marker-modals">
                                 <h4><a href="<?php the_permalink(); ?>" rel="bookmark"> <?php the_title(); ?></a></h4>
-                                <?php
-                                    echo woocommerce_get_product_thumbnail('woocommerce_thumbnail');
-                                ?>
+                        
                                 <p class="address"><?php echo $location['address']; ?></p>
                             </div>
                     </div>
