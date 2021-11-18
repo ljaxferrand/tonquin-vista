@@ -342,6 +342,18 @@ function wporg_dashboard_widget_render_5() {
 	<?php
 }
 
+// REMOVE ADMIN MENU ITEMS
+
+// Remove admin menu links for non-Administrator accounts
+function twd_remove_admin_links() {
+	if ( !current_user_can( 'manage_options' ) ) {
+		remove_menu_page( 'edit.php' );           // Remove Posts link
+    		remove_menu_page( 'edit-comments.php' );   // Remove Comments link
+	}
+}
+add_action( 'admin_menu', 'twd_remove_admin_links' );
+
+
 
 // ADD WIDGETS ENDS HERE --------------------------------------------------
 
